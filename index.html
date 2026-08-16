@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Armchair Insider — Weekly Sell Summary · July 20–August 2, 2026</title>
+<title>Armchair Insider — Weekly Sell Summary · August 3–16, 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
@@ -333,7 +333,7 @@ button[onclick^="download_"]{
 <section class="hero">
   <div class="hero-eyebrow">Armchair Insider Lounge</div>
   <h1><em>Recent Sells</em></h1>
-  <p class="hero-date">July 20 – August 2, 2026 &nbsp;·&nbsp; Armchair Community Report</p>
+  <p class="hero-date">August 3 – 16, 2026 &nbsp;·&nbsp; Armchair Community Report</p>
   <p class="hero-desc">A curated snapshot of tickers recently sold or reduced by community members, organized by mentions, asset class, and yield context for educational discussion.</p>
   <span class="hero-disc">⚠ For community discussion and education only. Not financial advice.</span>
 </section>
@@ -344,12 +344,12 @@ button[onclick^="download_"]{
   <h2 class="sec-title">Sell Activity Metrics</h2>
   <div class="rule"></div>
   <div class="metrics">
-    <div class="m-card"><div class="m-label">Total Tickers Sold</div><div class="m-val gold">13</div><div class="m-meta">Unique tickers in the sell summary</div></div>
-    <div class="m-card"><div class="m-label">Total Sell Mentions</div><div class="m-val gold">15</div><div class="m-meta">Aggregated across all listed tickers</div></div>
-    <div class="m-card"><div class="m-label">Most Sold Ticker</div><div class="m-val" style="font-size:24px;">PBDC</div><div class="m-meta">2 mentions — tied highest sell activity this period</div></div>
-    <div class="m-card"><div class="m-label">Highest Yield</div><div class="m-val red">36.00%</div><div class="m-meta">BLOX — Nicholas Crypto Income ETF</div></div>
-    <div class="m-card"><div class="m-label">Most Common Asset Class</div><div class="m-val" style="font-size:20px;">ETFs</div><div class="m-meta">8 tickers in this sell summary</div></div>
-    <div class="m-card"><div class="m-label">Average Yield</div><div class="m-val green">14.09%</div><div class="m-meta">Across all 13 tickers</div></div>
+    <div class="m-card"><div class="m-label">Total Tickers Sold</div><div class="m-val gold">21</div><div class="m-meta">Unique tickers in the sell summary</div></div>
+    <div class="m-card"><div class="m-label">Total Sell Mentions</div><div class="m-val gold">24</div><div class="m-meta">Aggregated across all listed tickers</div></div>
+    <div class="m-card"><div class="m-label">Most Sold Ticker</div><div class="m-val" style="font-size:24px;">STRC</div><div class="m-meta">2 mentions — tied with MAIN and DLY</div></div>
+    <div class="m-card"><div class="m-label">Highest Yield</div><div class="m-val red">14.01%</div><div class="m-meta">QQQI — NEOS Nasdaq-100 High Income ETF</div></div>
+    <div class="m-card"><div class="m-label">Most Common Asset Class</div><div class="m-val" style="font-size:20px;">CEFs</div><div class="m-meta">11 tickers in this sell summary</div></div>
+    <div class="m-card"><div class="m-label">Average Yield</div><div class="m-val green">10.53%</div><div class="m-meta">Across all 21 tickers</div></div>
   </div>
 </section>
 </div>
@@ -360,7 +360,7 @@ button[onclick^="download_"]{
   <h2 class="sec-title">Recent Sell Breakdown</h2>
   <div class="rule"></div>
   <div class="charts-grid">
-    <div class="c-card"><div class="c-title">Tickers by Sell Mentions</div><div class="c-sub">PBDC and SPYI lead with 2 sell mentions each</div><div class="c-wrap"><canvas id="mentChart" height="280"></canvas></div></div>
+    <div class="c-card"><div class="c-title">Tickers by Sell Mentions</div><div class="c-sub">STRC, MAIN, and DLY lead with 2 sell mentions each</div><div class="c-wrap"><canvas id="mentChart" height="280"></canvas></div></div>
     <div class="c-card"><div class="c-title">Top 10 Tickers by Yield</div><div class="c-sub">High-yield positions highlighted for attention</div><div class="c-wrap"><canvas id="yieldChart" height="280"></canvas></div></div>
     <div class="c-card"><div class="c-title">Asset Class Distribution</div><div class="c-sub">Share of tickers by broad category</div><div class="c-wrap" style="max-width:400px;margin:0 auto;"><canvas id="donutChart" height="260"></canvas></div></div>
     
@@ -371,7 +371,7 @@ button[onclick^="download_"]{
 <div class="wrap">
 <section class="section">
   <p class="sec-eye">◆ Full List</p>
-  <h2 class="sec-title">All 13 Recent Sell Tickers</h2>
+  <h2 class="sec-title">All 21 Recent Sell Tickers</h2>
   <div class="rule"></div>
   <div class="tbl-ctrl">
     <input type="text" class="s-box" id="sBox" placeholder="Search ticker, name, or asset class…" oninput="filterTbl()">
@@ -381,10 +381,10 @@ button[onclick^="download_"]{
     <button class="f-btn" data-f="PREF" onclick="setF('PREF')">Preferred</button>
     <button class="f-btn" data-f="EQ" onclick="setF('EQ')">Equity / BDC</button>
     <button class="f-btn" data-f="hi2" onclick="setF('hi2')">2+ Mentions</button>
-    <button class="f-btn" data-f="hy20" onclick="setF('hy20')">Yield &gt;20%</button>
+    <button class="f-btn" data-f="hy10" onclick="setF('hy10')">Yield &gt;10%</button>
     <button onclick="download_mainTbl()" style="display:inline-flex;align-items:center;gap:7px;padding:9px 16px;background:#1F6B47;color:#fff;border:none;border-radius:7px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:.02em;transition:background .15s;white-space:nowrap;" onmouseover="this.style.background='#174f34'" onmouseout="this.style.background='#1F6B47'">⬇ Download Table as Excel</button>
-    <a class="pdf-btn" href="SELL SUMMARY - July 20 - August 2.pdf" target="_blank" rel="noopener">View PDF</a>
-    <span class="r-count" id="rCount">13 tickers</span>
+    <a class="pdf-btn" href="SELL SUMMARY - August 3 - August 16.pdf" target="_blank" rel="noopener">View PDF</a>
+    <span class="r-count" id="rCount">21 tickers</span>
   </div>
   <div class="tbl-wrap">
     <table id="mainTbl">
@@ -406,26 +406,34 @@ button[onclick^="download_"]{
 </div>
 
 <footer>
-  <div><span>Armchair Insider Lounge</span> &nbsp;·&nbsp; Recent Sells &nbsp;·&nbsp; July 20 – August 2, 2026</div>
+  <div><span>Armchair Insider Lounge</span> &nbsp;·&nbsp; Recent Sells &nbsp;·&nbsp; August 3 – 16, 2026</div>
   <div>Tickers shown are compatible with Seeking Alpha. Tickers for other websites and brokerages may vary.</div>
   <div>For discussion and educational purposes only. Not investment advice.</div>
 </footer>
 
 <script>
 const DATA = [
-  {"rank":1, "ticker":"PBDC", "name":"Putnam BDC Income ETF", "mentions":2, "ac":"ETF / BDC income", "yield":11.58, "freq":"Monthly"},
-  {"rank":2, "ticker":"SPYI", "name":"NEOS S&P 500 High Income ETF", "mentions":2, "ac":"ETF / S&P 500 option-income", "yield":11.99, "freq":"Monthly"},
-  {"rank":3, "ticker":"ASGI", "name":"abrdn Global Infrastructure Income Fund", "mentions":1, "ac":"CEF / global infrastructure", "yield":11.05, "freq":"Monthly"},
-  {"rank":4, "ticker":"BLOX", "name":"Nicholas Crypto Income ETF", "mentions":1, "ac":"ETF / crypto income", "yield":36.00, "freq":"Monthly"},
-  {"rank":5, "ticker":"ENB", "name":"Enbridge Inc.", "mentions":1, "ac":"Equity / energy infrastructure", "yield":5.08, "freq":"Quarterly"},
-  {"rank":6, "ticker":"GOF", "name":"Guggenheim Strategic Opportunities Fund", "mentions":1, "ac":"CEF / multi-asset income", "yield":20.79, "freq":"Monthly"},
-  {"rank":7, "ticker":"ICAP", "name":"Infrastructure Capital Equity Income ETF", "mentions":1, "ac":"ETF / equity income", "yield":9.93, "freq":"Monthly"},
-  {"rank":8, "ticker":"IDVO", "name":"Amplify International Enhanced Dividend Income ETF", "mentions":1, "ac":"ETF / international dividend covered-call", "yield":5.94, "freq":"Monthly"},
-  {"rank":9, "ticker":"KLIP", "name":"KraneShares KWEB Covered Call Strategy ETF", "mentions":1, "ac":"ETF / China internet covered-call", "yield":23.86, "freq":"Monthly"},
-  {"rank":10, "ticker":"NIHI", "name":"NEOS MSCI EAFE High Income ETF", "mentions":1, "ac":"ETF / international equity option-income", "yield":9.60, "freq":"Monthly"},
-  {"rank":11, "ticker":"PFFA", "name":"Virtus InfraCap U.S. Preferred Stock ETF", "mentions":1, "ac":"ETF / preferred stock income", "yield":9.98, "freq":"Monthly"},
-  {"rank":12, "ticker":"QQQI", "name":"NEOS Nasdaq-100 High Income ETF", "mentions":1, "ac":"ETF / Nasdaq-100 option-income", "yield":14.05, "freq":"Monthly"},
-  {"rank":13, "ticker":"TYG", "name":"Tortoise Energy Infrastructure Corp.", "mentions":1, "ac":"CEF / energy infrastructure", "yield":13.29, "freq":"Quarterly"}
+  {"rank":1,"ticker":"STRC","name":"Strategy Inc Variable Rate Series A Perpetual Stretch Preferred Stock","mentions":2,"ac":"Preferred stock / Strategy-linked income","yield":12.66,"freq":"Semi-Monthly"},
+  {"rank":2,"ticker":"MAIN","name":"Main Street Capital Corp.","mentions":2,"ac":"BDC / equity","yield":7.45,"freq":"Monthly"},
+  {"rank":3,"ticker":"DLY","name":"DoubleLine Yield Opportunities Fund","mentions":2,"ac":"CEF / multi-sector credit","yield":9.83,"freq":"Monthly"},
+  {"rank":4,"ticker":"TYG","name":"Tortoise Energy Infrastructure Corp.","mentions":1,"ac":"CEF / energy infrastructure","yield":12.87,"freq":"Quarterly"},
+  {"rank":5,"ticker":"SVNLY","name":"Svenska Handelsbanken AB ADR","mentions":1,"ac":"ADR / banking equity","yield":12.00,"freq":"Annual"},
+  {"rank":6,"ticker":"SPYI","name":"NEOS S&P 500 High Income ETF","mentions":1,"ac":"ETF / S&P 500 option-income","yield":12.04,"freq":"Monthly"},
+  {"rank":7,"ticker":"RLTY","name":"Cohen & Steers Real Estate Opportunities and Income Fund","mentions":1,"ac":"CEF / real estate income","yield":8.35,"freq":"Monthly"},
+  {"rank":8,"ticker":"QQQI","name":"NEOS Nasdaq-100 High Income ETF","mentions":1,"ac":"ETF / Nasdaq-100 option-income","yield":14.01,"freq":"Monthly"},
+  {"rank":9,"ticker":"PTY","name":"PIMCO Corporate & Income Opportunity Fund","mentions":1,"ac":"CEF / multi-sector income","yield":12.15,"freq":"Monthly"},
+  {"rank":10,"ticker":"PFFA","name":"Virtus InfraCap U.S. Preferred Stock ETF","mentions":1,"ac":"ETF / preferred stock income","yield":9.71,"freq":"Monthly"},
+  {"rank":11,"ticker":"PBDC","name":"Putnam BDC Income ETF","mentions":1,"ac":"ETF / BDC income","yield":10.78,"freq":"Monthly"},
+  {"rank":12,"ticker":"JEPQ","name":"JPMorgan Nasdaq Equity Premium Income ETF","mentions":1,"ac":"ETF / Nasdaq equity premium income","yield":10.78,"freq":"Monthly"},
+  {"rank":13,"ticker":"JEPI","name":"JPMorgan Equity Premium Income ETF","mentions":1,"ac":"ETF / equity premium income","yield":7.89,"freq":"Monthly"},
+  {"rank":14,"ticker":"IIPR.PR.A","name":"Innovative Industrial Properties, Inc. 9.00% Series A Cumulative Redeemable Preferred Stock","mentions":1,"ac":"Preferred stock / REIT","yield":8.98,"freq":"Quarterly"},
+  {"rank":15,"ticker":"HQH","name":"abrdn Healthcare Investors","mentions":1,"ac":"CEF / healthcare equity","yield":11.32,"freq":"Quarterly"},
+  {"rank":16,"ticker":"FSCO","name":"FS Credit Opportunities Corp.","mentions":1,"ac":"CEF / credit","yield":13.95,"freq":"Monthly"},
+  {"rank":17,"ticker":"EOS","name":"Eaton Vance Enhanced Equity Income Fund II","mentions":1,"ac":"CEF / equity option-income","yield":8.32,"freq":"Monthly"},
+  {"rank":18,"ticker":"DSL","name":"DoubleLine Income Solutions Fund","mentions":1,"ac":"CEF / fixed income","yield":12.18,"freq":"Monthly"},
+  {"rank":19,"ticker":"CSQ","name":"Calamos Strategic Total Return Fund","mentions":1,"ac":"CEF / equity and convertible income","yield":7.74,"freq":"Monthly"},
+  {"rank":20,"ticker":"BDJ","name":"BlackRock Enhanced Equity Dividend Trust","mentions":1,"ac":"CEF / equity covered-call income","yield":7.53,"freq":"Monthly"},
+  {"rank":21,"ticker":"ASGI","name":"abrdn Global Infrastructure Income Fund","mentions":1,"ac":"CEF / global infrastructure","yield":10.57,"freq":"Monthly"}
 ];
 
 let sortCol=0, sortDir=1, curFilter='all';
@@ -462,7 +470,7 @@ function getRows(){
   else if(curFilter==='PREF') r=r.filter(d=>(d.ac + ' ' + d.name + ' ' + d.ticker).toLowerCase().includes('preferred') || d.ticker.includes('.PR'));
   else if(curFilter==='EQ') r=r.filter(d=>broadCat(d.ac)==='Equities / BDCs');
   else if(curFilter==='hi2') r=r.filter(d=>d.mentions>=2);
-  else if(curFilter==='hy20') r=r.filter(d=>d.yield>=20);
+  else if(curFilter==='hy10') r=r.filter(d=>d.yield>=10);
   return r;
 }
 function filterTbl(){renderTbl(getRows());}
@@ -542,7 +550,7 @@ function download_mainTbl() {
   var ws = XLSX.utils.aoa_to_sheet(rows);
   var wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, 'Report');
-  XLSX.writeFile(wb, 'WeeklySellSummary_July20-August2_2026.xlsx');
+  XLSX.writeFile(wb, 'WeeklySellSummary_August3-16_2026.xlsx');
 }
 </script>
 <script src="vendor/gsap.min.js"></script>
