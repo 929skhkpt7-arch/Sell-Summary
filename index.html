@@ -876,8 +876,8 @@ function getRows(){
   if(q) r=r.filter(d=>d.ticker.toLowerCase().includes(q)||d.name.toLowerCase().includes(q)||d.ac.toLowerCase().includes(q)||d.freq.toLowerCase().includes(q));
   if(curFilter==='CEF') r=r.filter(d=>broadCat(d.ac)==='Closed-End Funds');
   else if(curFilter==='ETF') r=r.filter(d=>broadCat(d.ac)==='ETFs');
-  else if(curFilter==='PREF') r=r.filter(d=>(d.ac + ' ' + d.name + ' ' + d.ticker).toLowerCase().includes('preferred') || d.ticker.includes('.PR'));
-  else if(curFilter==='EQ') r=r.filter(d=>broadCat(d.ac)==='Equities / BDCs');
+  else if(curFilter==='PREF') r=r.filter(d=>/preferred|\.pr\./i.test(`${d.ac} ${d.name} ${d.ticker}`));
+  else if(curFilter==='EQ') r=r.filter(d=>/\bbdc\b|business development|\bequity\b|\bcommon stock\b/i.test(`${d.ac} ${d.name}`));
   else if(curFilter==='hi2') r=r.filter(d=>d.mentions>=2);
   else if(curFilter==='hy10') r=r.filter(d=>d.yield>=10);
   return r;
@@ -920,10 +920,10 @@ new Chart(document.getElementById('yieldChart'),{
 
 function broadCat(ac){
   const a=ac.toLowerCase();
-  if(a.startsWith('etf') || a.includes(' etf') || a.endsWith('etf')) return 'ETFs';
-  if(a.startsWith('cef') || a.includes(' cef') || a.includes('closed-end fund')) return 'Closed-End Funds';
-  if(a.includes('bdc')) return 'Equities / BDCs';
+  if(a.includes('bdc') || a.includes('business development')) return 'Equities / BDCs';
   if(a.includes('preferred')) return 'Preferred Stock';
+  if(a.startsWith('cef') || a.includes(' cef') || a.includes('closed-end fund')) return 'Closed-End Funds';
+  if(a.startsWith('etf') || a.includes(' etf') || a.endsWith('etf')) return 'ETFs';
   if(a.includes('reit') || a.includes('mortgage credit')) return 'REITs / Mortgage Credit';
   if(a.includes('debt') || a.includes('senior notes') || a.includes('credit')) return 'Credit / Bonds';
   if(a.startsWith('equity') || a.includes('equity')) return 'Equities / BDCs';
