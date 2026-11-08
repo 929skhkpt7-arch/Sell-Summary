@@ -1,65 +1,141 @@
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Armchair Insider — Weekly Sell Summary · October 12–25, 2026</title>
+<title>Armchair Insider — Weekly Sell Summary · October 26–November 8, 2026</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 :root {
-  --gold:#C9A84C; --gold-lt:#E8C97A; --gold-pale:#FBF5E6; --gold-dim:#A07830;
-  --ink:#18150F; --ink-mid:#3D3628; --ink-lt:#7A6F5E;
-  --surface:#FDFCF8; --surface-2:#F5F0E6; --surface-3:#EDE4D0; --border:#E2D8C2;
-  --green:#1F6B47; --green-lt:#E6F4ED; --amber:#9E5A0A; --amber-lt:#FEF0DC;
-  --red:#8B1A1A; --red-lt:#FDECEC; --blue:#1A3F6F;
-  --r:12px; --rs:7px; --sh:0 2px 14px rgba(24,21,15,.07); --sh-md:0 6px 28px rgba(24,21,15,.11);
+  --gold:       #C9A84C;
+  --gold-lt:    #E8C97A;
+  --gold-pale:  #FBF5E6;
+  --gold-dim:   #A07830;
+  --ink:        #18150F;
+  --ink-mid:    #3D3628;
+  --ink-lt:     #7A6F5E;
+  --surface:    #FDFCF8;
+  --surface-2:  #F5F0E6;
+  --surface-3:  #EDE4D0;
+  --border:     #E2D8C2;
+  --green:      #1F6B47;
+  --green-lt:   #E6F4ED;
+  --amber:      #9E5A0A;
+  --amber-lt:   #FEF0DC;
+  --red:        #8B1A1A;
+  --red-lt:     #FDECEC;
+  --blue:       #1A3F6F;
+  --r:          12px;
+  --rs:         7px;
+  --sh:         0 2px 14px rgba(24,21,15,.07);
+  --sh-md:      0 6px 28px rgba(24,21,15,.11);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'DM Sans',sans-serif;background:var(--surface);color:var(--ink);line-height:1.65;font-size:15px;}
+
+/* ── HERO ── */
 .hero{
   background:var(--ink);
   background-image:
     radial-gradient(ellipse 70% 55% at 65% 130%, rgba(201,168,76,.20) 0%,transparent 65%),
-    radial-gradient(ellipse 45% 45% at 5% 5%, rgba(201,168,76,.08) 0%,transparent 55%);
-  padding:60px 24px 52px;text-align:center;position:relative;overflow:hidden;
+    radial-gradient(ellipse 45% 45% at 5% 5%,   rgba(201,168,76,.08) 0%,transparent 55%);
+  padding:60px 24px 52px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
 }
-.hero::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:repeating-linear-gradient(90deg,transparent,transparent 56px,rgba(201,168,76,.025) 56px,rgba(201,168,76,.025) 57px),repeating-linear-gradient(0deg,transparent,transparent 56px,rgba(201,168,76,.025) 56px,rgba(201,168,76,.025) 57px);}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.13);border:1px solid rgba(201,168,76,.32);color:var(--gold-lt);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.13em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:26px;}
-.hero-eyebrow::before{content:'▼';font-size:8px;}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(32px,6vw,64px);color:#fff;line-height:1.12;letter-spacing:-.01em;margin-bottom:10px;}
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:
+    repeating-linear-gradient(90deg,transparent,transparent 56px,rgba(201,168,76,.025) 56px,rgba(201,168,76,.025) 57px),
+    repeating-linear-gradient(0deg,  transparent,transparent 56px,rgba(201,168,76,.025) 56px,rgba(201,168,76,.025) 57px);
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(201,168,76,.13);border:1px solid rgba(201,168,76,.32);
+  color:var(--gold-lt);font-family:'DM Mono',monospace;font-size:11px;
+  letter-spacing:.13em;text-transform:uppercase;padding:5px 14px;border-radius:100px;margin-bottom:26px;
+}
+.hero-eyebrow::before{content:'▲';font-size:8px;}
+.hero h1{
+  font-family:'Playfair Display',serif;font-size:clamp(28px,5.5vw,54px);
+  color:#fff;line-height:1.12;letter-spacing:-.01em;margin-bottom:10px;
+}
 .hero h1 em{font-style:italic;color:var(--gold-lt);}
-.hero-date{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:18px;}
-.hero-desc{max-width:620px;margin:0 auto 22px;color:rgba(255,255,255,.65);font-size:15px;line-height:1.78;}
-.hero-disc{display:inline-block;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.11);color:rgba(255,255,255,.55);font-size:11.5px;padding:8px 18px;border-radius:6px;font-family:'DM Mono',monospace;}
+.hero-date{
+  font-family:'DM Mono',monospace;font-size:12px;letter-spacing:.1em;
+  text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:18px;
+}
+.hero-desc{max-width:540px;margin:0 auto 22px;color:rgba(255,255,255,.65);font-size:15px;line-height:1.78;}
+.hero-disc{
+  display:inline-block;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.11);color:rgba(255,255,255,.4);
+  font-size:11.5px;padding:8px 18px;border-radius:6px;font-family:'DM Mono',monospace;
+}
+
+/* ── LAYOUT ── */
 .wrap{max-width:1120px;margin:0 auto;padding:0 20px;}
 .section{padding:48px 0;}
 .sec-eye{font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
 .sec-title{font-family:'Playfair Display',serif;font-size:26px;letter-spacing:-.01em;margin-bottom:6px;}
 .sec-sub{color:var(--ink-lt);font-size:13.5px;margin-bottom:26px;}
 .rule{height:2px;width:80px;background:linear-gradient(90deg,var(--gold),transparent);margin-bottom:26px;border-radius:2px;}
+
+/* ── METRIC CARDS ── */
 .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:13px;}
-.m-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:22px 18px;box-shadow:var(--sh);position:relative;overflow:hidden;transition:box-shadow .18s,transform .18s;}
+.m-card{
+  background:#fff;border:1px solid var(--border);border-radius:var(--r);
+  padding:22px 18px;box-shadow:var(--sh);position:relative;overflow:hidden;
+  transition:box-shadow .18s,transform .18s;
+}
 .m-card:hover{box-shadow:var(--sh-md);transform:translateY(-2px);}
 .m-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-lt));}
 .m-label{font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-lt);margin-bottom:10px;}
 .m-val{font-family:'Playfair Display',serif;font-size:30px;color:var(--ink);line-height:1.1;margin-bottom:4px;}
-.m-val.gold{color:var(--gold-dim);} .m-val.green{color:var(--green);} .m-val.red{color:var(--red);}
+.m-val.gold{color:var(--gold-dim);}
+.m-val.green{color:var(--green);}
 .m-meta{font-size:12px;color:var(--ink-lt);line-height:1.5;}
+
+/* ── TOP ACTIVITY ── */
 .top-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;}
-.top-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:22px 20px;box-shadow:var(--sh);}
+.top-card{
+  background:#fff;border:1px solid var(--border);border-radius:var(--r);
+  padding:22px 20px;box-shadow:var(--sh);
+}
 .top-card.featured{border-color:var(--gold);background:var(--gold-pale);}
 .top-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:14px;}
-.top-ticker{font-family:'DM Mono',monospace;font-size:20px;font-weight:500;background:var(--ink);color:var(--gold-lt);padding:4px 12px;border-radius:5px;letter-spacing:.04em;}
+.top-ticker{
+  font-family:'DM Mono',monospace;font-size:20px;font-weight:500;
+  background:var(--ink);color:var(--gold-lt);
+  padding:4px 12px;border-radius:5px;letter-spacing:.04em;
+}
 .featured .top-ticker{background:var(--gold);color:var(--ink);}
-.mention-badge{display:inline-flex;align-items:center;gap:5px;background:var(--gold-pale);border:1px solid var(--gold);color:var(--gold-dim);font-family:'DM Mono',monospace;font-size:11px;padding:4px 10px;border-radius:100px;white-space:nowrap;}
+.mention-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  background:var(--gold-pale);border:1px solid var(--gold);
+  color:var(--gold-dim);font-family:'DM Mono',monospace;font-size:11px;
+  padding:4px 10px;border-radius:100px;white-space:nowrap;
+}
 .mention-badge .dot{width:6px;height:6px;background:var(--gold);border-radius:50%;}
 .top-name{font-size:13.5px;font-weight:500;color:var(--ink-mid);margin-bottom:6px;}
 .top-meta{display:flex;gap:10px;flex-wrap:wrap;}
-.top-pill{font-size:11px;font-family:'DM Mono',monospace;background:var(--surface-2);border:1px solid var(--border);padding:3px 9px;border-radius:100px;color:var(--ink-mid);}
+.top-pill{
+  font-size:11px;font-family:'DM Mono',monospace;
+  background:var(--surface-2);border:1px solid var(--border);
+  padding:3px 9px;border-radius:100px;color:var(--ink-mid);
+}
 .top-pill.green{background:var(--green-lt);border-color:#A3D4BC;color:var(--green);}
-.top-interpret{background:var(--surface-2);border-left:3px solid var(--gold);padding:16px 18px;border-radius:0 var(--rs) var(--rs) 0;margin-top:22px;font-size:13.5px;color:var(--ink-mid);line-height:1.75;}
+.top-interpret{
+  background:var(--surface-2);border-left:3px solid var(--gold);
+  padding:16px 18px;border-radius:0 var(--rs) var(--rs) 0;
+  margin-top:22px;font-size:13.5px;color:var(--ink-mid);line-height:1.75;
+}
+
+/* ── CHARTS ── */
 .chart-bg{background:var(--surface-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
 .charts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(460px,1fr));gap:18px;}
 @media(max-width:580px){.charts-grid{grid-template-columns:1fr;}}
@@ -67,36 +143,93 @@ body{font-family:'DM Sans',sans-serif;background:var(--surface);color:var(--ink)
 .c-title{font-family:'Playfair Display',serif;font-size:16px;margin-bottom:3px;}
 .c-sub{font-size:11.5px;color:var(--ink-lt);font-family:'DM Mono',monospace;margin-bottom:18px;}
 .c-wrap{position:relative;}
+
+/* ── TABLE ── */
 .tbl-ctrl{display:flex;gap:10px;margin-bottom:13px;flex-wrap:wrap;align-items:center;}
-.s-box{flex:1;min-width:170px;padding:9px 13px;border:1px solid var(--border);border-radius:var(--rs);font-family:'DM Sans',sans-serif;font-size:13px;background:#fff;color:var(--ink);outline:none;transition:border-color .18s;}
+.s-box{
+  flex:1;min-width:170px;padding:9px 13px;
+  border:1px solid var(--border);border-radius:var(--rs);
+  font-family:'DM Sans',sans-serif;font-size:13px;background:#fff;color:var(--ink);outline:none;
+  transition:border-color .18s;
+}
 .s-box:focus{border-color:var(--gold);}
-.f-btn{padding:9px 13px;border:1px solid var(--border);border-radius:var(--rs);background:#fff;font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.07em;cursor:pointer;color:var(--ink-mid);transition:all .15s;text-transform:uppercase;}
+.f-btn{
+  padding:9px 13px;border:1px solid var(--border);border-radius:var(--rs);
+  background:#fff;font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.07em;
+  cursor:pointer;color:var(--ink-mid);transition:all .15s;text-transform:uppercase;
+}
 .f-btn:hover,.f-btn.active{background:var(--ink);color:var(--gold-lt);border-color:var(--ink);}
 .r-count{font-family:'DM Mono',monospace;font-size:12px;color:var(--ink-lt);margin-left:auto;}
 .tbl-wrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--sh);}
 table{width:100%;border-collapse:collapse;background:#fff;font-size:13.5px;}
 thead tr{background:var(--ink);}
-thead th{padding:13px;text-align:left;color:rgba(255,255,255,.7);font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;cursor:pointer;user-select:none;transition:color .15s;}
-thead th:hover{color:var(--gold-lt);} thead th.sa::after{content:' ↑';color:var(--gold-lt);} thead th.sd::after{content:' ↓';color:var(--gold-lt);}
-tbody tr{border-bottom:1px solid var(--border);transition:background .1s;} tbody tr:last-child{border-bottom:none;} tbody tr:hover{background:var(--gold-pale);}
-tbody tr.hi{background:var(--gold-pale);} tbody tr.hi:hover{background:#F0E4C6;}
+thead th{
+  padding:13px 13px;text-align:left;color:rgba(255,255,255,.7);
+  font-family:'DM Mono',monospace;font-size:10.5px;letter-spacing:.09em;
+  text-transform:uppercase;white-space:nowrap;cursor:pointer;user-select:none;transition:color .15s;
+}
+thead th:hover{color:var(--gold-lt);}
+thead th.sa::after{content:' ↑';color:var(--gold-lt);}
+thead th.sd::after{content:' ↓';color:var(--gold-lt);}
+tbody tr{border-bottom:1px solid var(--border);transition:background .1s;}
+tbody tr:last-child{border-bottom:none;}
+tbody tr:hover{background:var(--gold-pale);}
+tbody tr.hi{background:var(--gold-pale);}
+tbody tr.hi:hover{background:#F0E4C6;}
 td{padding:11px 13px;vertical-align:middle;}
 .rank-c{font-family:'DM Mono',monospace;font-size:12px;color:var(--ink-lt);width:32px;}
 .hi .rank-c{color:var(--gold-dim);font-weight:700;}
-.t-badge{display:inline-block;background:var(--ink);color:var(--gold-lt);font-family:'DM Mono',monospace;font-size:12px;padding:3px 8px;border-radius:4px;letter-spacing:.04em;}
+.t-badge{
+  display:inline-block;background:var(--ink);color:var(--gold-lt);
+  font-family:'DM Mono',monospace;font-size:12px;padding:3px 8px;border-radius:4px;letter-spacing:.04em;
+}
 .hi .t-badge{background:var(--gold);color:var(--ink);}
 .name-c{color:var(--ink-mid);max-width:210px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .yield-v{font-family:'DM Mono',monospace;font-weight:600;color:var(--green);font-size:13px;}
-.yield-hi{color:var(--amber);} .yield-ex{color:var(--red);}
-.tag{display:inline-block;font-size:10px;font-family:'DM Mono',monospace;padding:1px 6px;border-radius:3px;margin-left:5px;vertical-align:middle;letter-spacing:.05em;white-space:nowrap;}
+.yield-hi{color:var(--amber);}
+.yield-ex{color:var(--red);}
+.tag{
+  display:inline-block;font-size:10px;font-family:'DM Mono',monospace;
+  padding:1px 6px;border-radius:3px;margin-left:5px;vertical-align:middle;
+  letter-spacing:.05em;white-space:nowrap;
+}
 .tag-hi{background:var(--amber-lt);border:1px solid #F6C07A;color:var(--amber);}
 .tag-ex{background:var(--red-lt);border:1px solid #EFAAAA;color:var(--red);}
-.type-pill{display:inline-block;background:var(--surface-2);border:1px solid var(--border);font-size:11px;padding:2px 8px;border-radius:100px;color:var(--ink-mid);white-space:nowrap;}
+.alloc-v{font-family:'DM Mono',monospace;font-size:13px;color:var(--ink-mid);}
+.type-pill{
+  display:inline-block;background:var(--surface-2);border:1px solid var(--border);
+  font-size:11px;padding:2px 8px;border-radius:100px;color:var(--ink-mid);white-space:nowrap;
+}
 .freq-pill{
   display:inline-block;background:#FFF6DB;border:1px solid var(--gold-border);
   font-size:11px;font-weight:700;padding:2px 8px;border-radius:100px;color:#7A5722;white-space:nowrap;
 }
-.men-wrap{display:flex;align-items:center;gap:7px;} .men-num{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;min-width:16px;}
+.pdf-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  text-decoration:none;
+  padding:9px 16px;
+  background:linear-gradient(135deg,var(--gold),var(--gold-lt));
+  color:var(--ink);
+  border:0;
+  border-radius:7px;
+  font-family:inherit;
+  font-size:13px;
+  font-weight:800;
+  cursor:pointer;
+  letter-spacing:.02em;
+  transition:transform .15s,box-shadow .15s,filter .15s;
+  white-space:nowrap;
+  box-shadow:0 10px 22px rgba(201,168,76,.22);
+}
+.pdf-btn:hover{
+  transform:translateY(-1px);
+  filter:saturate(1.05);
+  box-shadow:0 14px 30px rgba(201,168,76,.30);
+}
+.men-wrap{display:flex;align-items:center;gap:7px;}
+.men-num{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;min-width:16px;}
 .men-bar{height:6px;background:linear-gradient(90deg,var(--gold),var(--gold-lt));border-radius:3px;min-width:4px;}
 
 /* ── YIELD LINK ── */
@@ -110,6 +243,8 @@ td{padding:11px 13px;vertical-align:middle;}
   font-size:10px;color:var(--gold-dim);opacity:.7;
   font-family:'DM Mono',monospace;
 }
+
+/* ── ANALYSIS ── */
 .ana-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px;}
 .ana-block{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:22px;box-shadow:var(--sh);}
 .ana-block h3{font-family:'Playfair Display',serif;font-size:17px;margin-bottom:10px;display:flex;align-items:center;gap:9px;}
@@ -117,10 +252,20 @@ td{padding:11px 13px;vertical-align:middle;}
 .ana-block p{color:var(--ink-mid);font-size:13.5px;line-height:1.78;}
 .callout{background:var(--amber-lt);border-left:3px solid var(--amber);padding:12px 15px;border-radius:0 var(--rs) var(--rs) 0;margin-top:11px;font-size:13px;color:var(--ink-mid);}
 .callout strong{color:var(--amber);}
+
+/* ── FOOTER ── */
 footer{background:var(--ink);color:rgba(255,255,255,.35);text-align:center;padding:34px 24px;font-size:12px;font-family:'DM Mono',monospace;line-height:2.1;}
 footer span{color:rgba(201,168,76,.65);}
-@media(max-width:768px){.hero{padding:46px 18px 38px;}.metrics{grid-template-columns:repeat(2,1fr);}.top-grid,.ana-grid{grid-template-columns:1fr;}.name-c{max-width:140px;}}
-@media(max-width:420px){.metrics{grid-template-columns:1fr 1fr;}}
+
+@media(max-width:768px){
+  .hero{padding:46px 18px 38px;}
+  .metrics{grid-template-columns:repeat(2,1fr);}
+  .top-grid,.ana-grid{grid-template-columns:1fr;}
+  .name-c{max-width:140px;}
+}
+@media(max-width:420px){
+  .metrics{grid-template-columns:1fr 1fr;}
+}
 
 
 /* 2026 simplified interface refresh */
@@ -187,73 +332,7 @@ body{
   transform:translateY(-2px)!important;
   box-shadow:0 12px 30px rgba(43,37,24,.085)!important;
 }
-.top-card.featured:before{background:var(--gold)!important}
-.metrics{
-  grid-template-columns:repeat(6,minmax(0,1fr))!important;
-  gap:12px!important;
-}
-.metrics .m-card{
-  padding:18px 14px!important;
-}
-.metrics .m-label{
-  font-size:10px!important;
-  letter-spacing:.08em!important;
-}
-.metrics .m-val{
-  font-size:26px!important;
-}
-.metrics .m-meta{
-  font-size:11.5px!important;
-  line-height:1.35!important;
-}
-.metrics .m-val[style]{
-  font-size:20px!important;
-}
-.metrics .m-card{
-  background:linear-gradient(145deg,rgba(24,21,15,.96),rgba(38,31,20,.88))!important;
-  border-color:rgba(240,199,94,.22)!important;
-  color:#F8F1DE!important;
-  backdrop-filter:blur(14px)!important;
-  box-shadow:0 14px 38px rgba(0,0,0,.24)!important;
-}
-.metrics .m-card > *{
-  position:relative;
-  z-index:1;
-}
-.metrics .m-card:before{
-  opacity:0!important;
-  background:radial-gradient(420px circle at var(--card-x,50%) var(--card-y,50%),rgba(240,199,94,.22),rgba(240,199,94,.08) 28%,transparent 54%)!important;
-  transition:opacity .35s ease!important;
-  z-index:0;
-}
-.metrics .m-card:hover:before{
-  opacity:1!important;
-}
-.metrics .m-card:hover{
-  background:linear-gradient(145deg,rgba(24,21,15,.96),rgba(46,36,19,.9))!important;
-  color:#FFF8E6!important;
-  border-color:rgba(240,199,94,.46)!important;
-  box-shadow:0 28px 70px rgba(0,0,0,.38),0 0 42px rgba(240,199,94,.12)!important;
-}
-.metrics .m-card:after{
-  background:linear-gradient(90deg,var(--gold),var(--gold-lt))!important;
-}
-.metrics .m-card .m-label,
-.metrics .m-card:hover .m-label,
-.metrics .m-card .m-meta,
-.metrics .m-card:hover .m-meta{
-  color:rgba(248,241,222,.72)!important;
-}
-.metrics .m-card .m-val,
-.metrics .m-card:hover .m-val{
-  color:#F0C75E!important;
-}
-@media(max-width:1100px){
-  .metrics{grid-template-columns:repeat(3,minmax(0,1fr))!important;}
-}
-@media(max-width:640px){
-  .metrics{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
-}
+.m-card:before,.top-card.featured:before{background:var(--gold)!important}
 .chart-bg,
 div[style*="background:var(--surface-2)"]{
   background:transparent!important;
@@ -275,30 +354,6 @@ div[style*="background:var(--surface-2)"]{
   background:var(--gold-pale)!important;
   border-color:var(--gold)!important;
 }
-.pdf-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:7px;
-  text-decoration:none;
-  padding:9px 16px;
-  background:linear-gradient(135deg,var(--gold),var(--gold-lt));
-  color:var(--ink);
-  border:0;
-  border-radius:9px;
-  font-family:inherit;
-  font-size:13px;
-  font-weight:800;
-  cursor:pointer;
-  letter-spacing:.02em;
-  white-space:nowrap;
-  box-shadow:0 10px 22px rgba(201,168,76,.22);
-  transition:transform .15s,box-shadow .15s,filter .15s;
-}
-.pdf-btn:hover{
-  transform:translateY(-1px);
-  filter:saturate(1.05);
-  box-shadow:0 14px 30px rgba(201,168,76,.30);
-}
 .tbl-wrap{
   border:1px solid var(--border)!important;
   border-top:0!important;
@@ -317,71 +372,100 @@ button[onclick^="download_"]{
   background:var(--gold)!important;
   border-radius:9px!important;
 }
-
 @media(max-width:700px){
   .section{padding-top:34px!important;padding-bottom:34px!important}
   .hero{padding:38px 18px!important}
   .m-card,.c-card,.ana-block,.insight-card,.top-card{padding:18px!important}
 }
-
-.quarter-context{background:var(--surface-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-.q-summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:13px;margin-bottom:18px;}
-.q-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:18px 16px;box-shadow:var(--sh);position:relative;overflow:hidden;}
-.q-card:before{content:'';position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-lt));}
-.q-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-lt);margin-bottom:8px;}
-.q-value{font-family:'Playfair Display',serif;font-size:30px;line-height:1.05;color:var(--gold-dim);}
-.q-sub{font-size:12px;color:var(--ink-lt);margin-top:4px;}
-.q-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.65fr);gap:18px;align-items:stretch;}
-.q-note{background:#fff;border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:0 var(--r) var(--r) 0;padding:18px 20px;color:var(--ink-mid);font-size:14px;line-height:1.75;box-shadow:var(--sh);}
-.q-chart{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:18px;box-shadow:var(--sh);min-height:240px;}
-.q-chart-title{font-family:'Playfair Display',serif;font-size:17px;margin-bottom:8px;}
-@media(max-width:760px){.q-two{grid-template-columns:1fr;}}
-
-/* Quarterly context: keep the note + two charts balanced like the buy page */
-.quarter-context .q-two.q-three{
-  grid-template-columns:minmax(0,1.08fr) minmax(240px,.84fr) minmax(240px,.84fr)!important;
-  gap:18px!important;
-  align-items:stretch!important;
+@media print{
+  .tbl-ctrl,
+  .hero-disc,
+  button,
+  .pdf-btn{
+    display:none!important;
+  }
+  body{
+    background:#fff!important;
+  }
+  .hero,
+  footer{
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
 }
-.quarter-context .q-chart{
+
+.quarter-context{background:#12100b;background-image:radial-gradient(ellipse 70% 70% at 85% 10%,rgba(201,168,76,.16),transparent 60%);border-top:1px solid rgba(201,168,76,.2);border-bottom:1px solid rgba(201,168,76,.2);color:#FFF8E6;}
+.quarter-context .sec-title{color:#fff;}.quarter-context .sec-sub{color:rgba(255,248,230,.68);}.quarter-context .rule{background:linear-gradient(90deg,var(--gold),transparent);}
+.q-summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:13px;margin-bottom:18px;}.q-card{background:linear-gradient(145deg,rgba(24,21,15,.96),rgba(44,35,21,.9));border:1px solid rgba(201,168,76,.26);border-radius:var(--r);padding:18px 16px;box-shadow:0 16px 44px rgba(0,0,0,.26);position:relative;overflow:hidden;}.q-card:before{content:'';position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-lt));}.q-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,248,230,.66);margin-bottom:8px;}.q-value{font-family:'Playfair Display',serif;font-size:30px;line-height:1.05;color:var(--gold-lt);}.q-sub{font-size:12px;color:rgba(255,248,230,.62);margin-top:4px;}.q-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.75fr);gap:18px;align-items:stretch;}.q-note{background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.22);border-left:4px solid var(--gold);border-radius:0 var(--r) var(--r) 0;padding:18px 20px;color:rgba(255,248,230,.82);font-size:14px;line-height:1.75;}.q-chart{background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.22);border-radius:var(--r);padding:18px;min-height:260px;}.q-chart-title{font-family:'Playfair Display',serif;font-size:17px;margin-bottom:10px;color:#fff;}.q-canvas{height:165px;position:relative;margin-bottom:10px;}.q-bars{display:grid;gap:7px;}.q-bar-row{display:grid;grid-template-columns:92px 1fr 38px;gap:8px;align-items:center;font-family:'DM Mono',monospace;font-size:10.5px;color:rgba(255,248,230,.74);}.q-track{height:6px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden;}.q-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-lt));border-radius:999px;}@media(max-width:760px){.q-two{grid-template-columns:1fr;}}
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<link rel="stylesheet" href="premium.css?v=11">
+<style>
+.quarter-context .q-track{
+  display:block!important;
+  position:relative!important;
+  height:8px!important;
+  border-radius:999px!important;
+  background:rgba(255,248,230,.13)!important;
+  border:1px solid rgba(240,199,94,.16)!important;
+  overflow:hidden!important;
+}
+.quarter-context .q-fill{
+  display:block!important;
+  min-width:4px!important;
+  height:100%!important;
+  border-radius:999px!important;
+  background:linear-gradient(90deg,#B98C2B 0%,#E8C766 55%,#FFF0B8 100%)!important;
+  box-shadow:0 0 14px rgba(232,199,102,.34)!important;
+}
+/* Weekly Metrics: dark premium cards with the same soft cursor-follow gold glow. */
+.metrics .m-card{
   background:linear-gradient(145deg,rgba(24,21,15,.96),rgba(38,31,20,.88))!important;
-  border-color:rgba(201,168,76,.30)!important;
+  border-color:rgba(240,199,94,.22)!important;
   color:#F8F1DE!important;
+  backdrop-filter:blur(14px)!important;
+  box-shadow:0 14px 38px rgba(0,0,0,.24)!important;
 }
-.quarter-context .q-chart-title{color:#F8F1DE!important;}
-.quarter-context .q-canvas{height:190px!important;}
-.quarter-context .q-line-fallback{max-height:150px;overflow:auto;padding-right:2px;}
-.quarter-context .q-bar-row{
-  display:grid;
-  grid-template-columns:76px 1fr 40px!important;
-  gap:9px;
-  align-items:center;
-  margin:7px 0;
-  color:rgba(248,241,222,.78);
-  font-size:12px;
+.metrics .m-card > *{
+  position:relative;
+  z-index:1;
 }
-.quarter-context .q-bar{
-  height:8px;
-  border-radius:999px;
-  background:rgba(255,255,255,.10);
-  overflow:hidden;
+.metrics .m-card::before{
+  opacity:0!important;
+  background:radial-gradient(420px circle at var(--card-x,50%) var(--card-y,50%),rgba(240,199,94,.22),rgba(240,199,94,.08) 28%,transparent 54%)!important;
+  transition:opacity .35s ease!important;
+  z-index:0;
 }
-.quarter-context .q-bar span{
-  display:block;
-  height:100%;
-  border-radius:999px;
-  background:linear-gradient(90deg,var(--gold),var(--gold-lt));
+.metrics .m-card:hover::before{
+  opacity:1!important;
 }
-@media(max-width:1120px){
-  .quarter-context .q-two.q-three{grid-template-columns:1fr 1fr!important}
-  .quarter-context .q-note{grid-column:1/-1!important}
+.metrics .m-card:hover{
+  background:linear-gradient(145deg,rgba(24,21,15,.96),rgba(46,36,19,.9))!important;
+  color:#FFF8E6!important;
+  border-color:rgba(240,199,94,.46)!important;
+  box-shadow:0 28px 70px rgba(0,0,0,.38),0 0 42px rgba(240,199,94,.12)!important;
 }
-@media(max-width:760px){
-  .quarter-context .q-two.q-three{grid-template-columns:1fr!important}
-  .quarter-context .q-note{grid-column:auto!important}
+.metrics .m-card .m-label,
+.metrics .m-card:hover .m-label,
+.metrics .m-card .m-meta,
+.metrics .m-card:hover .m-meta{
+  color:rgba(255,248,230,.72)!important;
+}
+.metrics .m-card .m-val,
+.metrics .m-card:hover .m-val{
+  color:#FFF8E6!important;
+}
+.metrics .m-card .m-val.gold,
+.metrics .m-card:hover .m-val.gold{
+  color:#F0C75E!important;
+}
+.metrics .m-card .m-val.green,
+.metrics .m-card:hover .m-val.green{
+  color:#7DE0A6!important;
 }
 
-/* Restored past-style Weekly Metrics section — matched to BuySummary */
+/* Restored past-style Weekly Metrics section */
 .weekly-metrics-band{
   background:
     radial-gradient(780px circle at 84% 16%,rgba(201,168,76,.18),transparent 52%),
@@ -531,161 +615,229 @@ button[onclick^="download_"]{
   .weekly-metrics-section .metrics{grid-template-columns:1fr!important;}
 }
 
+
+
+/* Quarterly summary line chart layout */
+.quarter-context .q-two.q-three{grid-template-columns:minmax(0,1.08fr) minmax(240px,.84fr) minmax(240px,.84fr)!important;gap:18px!important;align-items:stretch!important;}
+.quarter-context .q-chart{background:linear-gradient(145deg,rgba(24,21,15,.92),rgba(38,31,20,.84))!important;border-color:rgba(201,168,76,.28)!important;}
+.quarter-context .q-canvas{height:190px!important;}
+.quarter-context .q-line-fallback{max-height:150px;overflow:auto;padding-right:2px;}
+.quarter-context .q-bar-row{grid-template-columns:76px 1fr 40px!important;}
+@media(max-width:1120px){.quarter-context .q-two.q-three{grid-template-columns:1fr 1fr!important}.quarter-context .q-note{grid-column:1/-1!important}}
+@media(max-width:760px){.quarter-context .q-two.q-three{grid-template-columns:1fr!important}.quarter-context .q-note{grid-column:auto!important}}
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<link rel="stylesheet" href="premium.css?v=11">
-<style id="sell-quarter-context-plate">
-/* Sell Quarterly Context — matched to the Buy Summary dark plate */
-.quarter-context{
-  background:#12100b!important;
-  background-image:
-    radial-gradient(ellipse 70% 70% at 85% 10%,rgba(201,168,76,.16),transparent 60%),
-    radial-gradient(ellipse 46% 58% at 4% 92%,rgba(201,168,76,.08),transparent 62%)!important;
-  border-top:1px solid rgba(201,168,76,.20)!important;
-  border-bottom:1px solid rgba(201,168,76,.20)!important;
-  color:#FFF8E6!important;
-}
-.quarter-context .sec-eye{
-  color:#D6B24D!important;
-}
-.quarter-context .sec-title{
-  color:#fff!important;
-}
-.quarter-context .sec-sub{
-  color:rgba(255,248,230,.68)!important;
-}
-.quarter-context .rule{
-  background:linear-gradient(90deg,var(--gold),transparent)!important;
-}
-.quarter-context .q-summary-grid{
-  display:grid!important;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr))!important;
-  gap:13px!important;
-  margin-bottom:18px!important;
-}
-.quarter-context .q-card{
-  background:linear-gradient(145deg,rgba(24,21,15,.96),rgba(44,35,21,.90))!important;
-  border:1px solid rgba(201,168,76,.26)!important;
-  border-radius:var(--r)!important;
-  padding:18px 16px!important;
-  box-shadow:0 16px 44px rgba(0,0,0,.26)!important;
-  position:relative!important;
-  overflow:hidden!important;
-}
-.quarter-context .q-card::before{
-  content:''!important;
-  position:absolute!important;
-  inset:0 0 auto!important;
-  height:3px!important;
-  background:linear-gradient(90deg,var(--gold),var(--gold-lt))!important;
-}
-.quarter-context .q-label{
-  font-family:'DM Mono',monospace!important;
-  font-size:10px!important;
-  letter-spacing:.1em!important;
-  text-transform:uppercase!important;
-  color:rgba(255,248,230,.66)!important;
-  margin-bottom:8px!important;
-}
-.quarter-context .q-value{
-  font-family:'Playfair Display',serif!important;
-  font-size:30px!important;
-  line-height:1.05!important;
-  color:var(--gold-lt)!important;
-}
-.quarter-context .q-sub{
-  font-size:12px!important;
-  color:rgba(255,248,230,.62)!important;
-  margin-top:4px!important;
-}
-.quarter-context .q-two.q-three{
-  display:grid!important;
-  grid-template-columns:minmax(0,1.08fr) minmax(240px,.84fr) minmax(240px,.84fr)!important;
-  gap:18px!important;
-  align-items:stretch!important;
-}
-.quarter-context .q-note{
-  background:rgba(255,255,255,.06)!important;
-  border:1px solid rgba(201,168,76,.22)!important;
-  border-left:4px solid var(--gold)!important;
-  border-radius:0 var(--r) var(--r) 0!important;
-  padding:18px 20px!important;
-  color:rgba(255,248,230,.82)!important;
-  font-size:14px!important;
-  line-height:1.75!important;
-  box-shadow:none!important;
-}
-.quarter-context .q-chart{
-  background:rgba(255,255,255,.06)!important;
-  border:1px solid rgba(201,168,76,.22)!important;
-  border-radius:var(--r)!important;
-  padding:18px!important;
-  min-height:260px!important;
-  box-shadow:none!important;
-  color:#FFF8E6!important;
-}
-.quarter-context .q-chart-title{
-  font-family:'Playfair Display',serif!important;
-  font-size:17px!important;
-  margin-bottom:10px!important;
-  color:#fff!important;
-}
-.quarter-context .q-canvas{
-  height:165px!important;
-  position:relative!important;
-  margin-bottom:10px!important;
-}
-.quarter-context .q-bars{
-  display:grid!important;
-  gap:7px!important;
-}
-.quarter-context .q-line-fallback{
-  max-height:150px!important;
-  overflow:auto!important;
-  padding-right:2px!important;
-}
-.quarter-context .q-bar-row{
-  display:grid!important;
-  grid-template-columns:92px 1fr 38px!important;
-  gap:8px!important;
-  align-items:center!important;
-  margin:0!important;
-  font-family:'DM Mono',monospace!important;
-  font-size:10.5px!important;
-  color:rgba(255,248,230,.74)!important;
-}
-.quarter-context .q-track{
-  height:6px!important;
-  border-radius:999px!important;
-  background:rgba(255,255,255,.12)!important;
-  overflow:hidden!important;
-}
-.quarter-context .q-fill{
-  display:block!important;
-  height:100%!important;
-  background:linear-gradient(90deg,var(--gold),var(--gold-lt))!important;
-  border-radius:999px!important;
-}
-@media(max-width:1120px){
-  .quarter-context .q-two.q-three{grid-template-columns:1fr 1fr!important}
-  .quarter-context .q-note{grid-column:1/-1!important}
-}
-@media(max-width:760px){
-  .quarter-context .q-two.q-three{grid-template-columns:1fr!important}
-  .quarter-context .q-note{grid-column:auto!important}
-}
+<style id="responsive-table-layout">
+  /* This copy keeps every table column in the viewport by wrapping long content. */
+  .tbl-wrap { overflow-x: hidden !important; }
+  #mainTbl {
+    width: 100% !important;
+    min-width: 0 !important;
+    table-layout: fixed;
+    font-size: clamp(9px, 0.95vw, 13px);
+  }
+  #mainTbl th,
+  #mainTbl td {
+    min-width: 0;
+    white-space: normal !important;
+    overflow-wrap: normal;
+    word-break: normal;
+    hyphens: none;
+  }
+  #mainTbl th { padding: 10px 8px; line-height: 1.22; }
+  #mainTbl td { padding: 10px 8px; line-height: 1.35; }
+  #mainTbl th:nth-child(4),
+  #mainTbl td:nth-child(4) { padding-left: 12px; }
+  #mainTbl th:nth-child(5),
+  #mainTbl td:nth-child(5) { padding-left: 14px; }
+  #mainTbl th:nth-child(1) { width: 3%; }
+  #mainTbl th:nth-child(2) { width: 11%; }
+  #mainTbl th:nth-child(3) { width: 23%; }
+  #mainTbl th:nth-child(4) { width: 7%; }
+  #mainTbl th:nth-child(5) { width: 31%; }
+  #mainTbl th:nth-child(6) { width: 12%; }
+  #mainTbl th:nth-child(7) { width: 13%; }
+  #mainTbl .name-c {
+    max-width: none;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+  }
+  #mainTbl .type-pill,
+  #mainTbl .freq-pill,
+  #mainTbl .yield-link { white-space: normal; }
+  #mainTbl th:nth-child(1),
+  #mainTbl th:nth-child(2),
+  #mainTbl th:nth-child(4),
+  #mainTbl th:nth-child(6),
+  #mainTbl td:nth-child(1),
+  #mainTbl td:nth-child(2),
+  #mainTbl td:nth-child(4),
+  #mainTbl td:nth-child(6),
+  #mainTbl td:nth-child(7) { white-space: nowrap !important; }
+  #mainTbl td:nth-child(2) { overflow: hidden; }
+  #mainTbl .t-badge {
+    display: inline-block;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    vertical-align: middle;
+  }
+  .tbl-ctrl {
+    flex-wrap: nowrap !important;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+  }
+  .tbl-ctrl > * { flex: 0 0 auto; }
+  .tbl-ctrl .s-box { flex: 1 1 180px; min-width: 150px; }
+  .tbl-ctrl .r-count { margin-left: 0; }
+  .tbl-ctrl .pdf-btn {
+    background: #1F5E7A;
+    color: #fff;
+    box-shadow: 0 10px 22px rgba(31,94,122,.22);
+  }
+  .tbl-ctrl .pdf-btn:hover {
+    background: #17475D;
+    box-shadow: 0 14px 30px rgba(31,94,122,.30);
+  }
+  .quarter-context .q-note {
+    align-self: start;
+    min-height: 0;
+    padding: 14px 16px;
+  }
+  .quarter-context .q-two.q-three {
+    grid-template-columns: minmax(230px, .82fr) minmax(0, 1.48fr) !important;
+    align-items: stretch;
+  }
+  .quarter-context .q-two.q-three > .q-note {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .quarter-context .q-two.q-three > .q-chart:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    min-height: 560px;
+    display: flex;
+    flex-direction: column;
+  }
+  .quarter-context .q-two.q-three > .q-chart:nth-child(2) .q-canvas {
+    height: 420px;
+    flex: 1 1 auto;
+  }
+  .quarter-context .q-two.q-three > .q-chart:nth-child(3) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .weekly-title-row {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .weekly-title-row .sec-eye { margin-bottom: 6px; }
+  .weekly-title-row .sec-title { margin-bottom: 0; }
+  .weekly-covered {
+    flex: 0 0 auto;
+    padding: 8px 12px;
+    border: 1px solid var(--gold-border);
+    border-radius: 8px;
+    background: var(--gold-pale);
+    text-align: right;
+  }
+  .weekly-covered span {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--ink-lt);
+  }
+  .weekly-covered strong {
+    display: block;
+    margin-top: 2px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: var(--ink);
+  }
+  @media (max-width: 900px) {
+    .quarter-context .q-two.q-three { grid-template-columns: 1fr !important; }
+    .quarter-context .q-two.q-three > .q-note,
+    .quarter-context .q-two.q-three > .q-chart:nth-child(2),
+    .quarter-context .q-two.q-three > .q-chart:nth-child(3) {
+      grid-column: auto;
+      grid-row: auto;
+      min-height: 0;
+    }
+    .quarter-context .q-two.q-three > .q-chart:nth-child(2) .q-canvas { height: 220px; }
+  }
+  @media (max-width: 700px) {
+    .wrap { padding-left: 10px; padding-right: 10px; }
+    .tbl-wrap {
+      display: block !important;
+      width: 100% !important;
+      overflow-x: hidden !important;
+      overflow-y: visible !important;
+    }
+    #mainTbl {
+      display: table !important;
+      width: 100% !important;
+      min-width: 0 !important;
+      table-layout: fixed !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      font-size: 8px !important;
+    }
+    #mainTbl thead { display: table-header-group !important; }
+    #mainTbl tbody { display: table-row-group !important; }
+    #mainTbl tr { display: table-row !important; }
+    #mainTbl th, #mainTbl td {
+      display: table-cell !important;
+      padding: 7px 3px !important;
+      font-size: 8px !important;
+    }
+    .tbl-ctrl { gap: 6px; padding: 8px !important; }
+    .tbl-ctrl .s-box { min-width: 120px; padding: 7px 9px; font-size: 11px; }
+    .tbl-ctrl .f-btn,
+    .tbl-ctrl .pdf-btn,
+    .tbl-ctrl button[onclick^="download_"] { padding: 7px 9px !important; font-size: 10px !important; }
+    .weekly-title-row { align-items: flex-start; }
+    .weekly-covered { padding: 6px 8px; }
+    .weekly-covered strong { font-size: 10px; }
+    #mainTbl th:nth-child(4), #mainTbl td:nth-child(4) { padding-left: 6px !important; }
+    #mainTbl th:nth-child(5), #mainTbl td:nth-child(5) { padding-left: 7px !important; }
+    #mainTbl th { font-size: 7px !important; letter-spacing: .02em !important; }
+    #mainTbl th:nth-child(1) { width: 4%; }
+    #mainTbl th:nth-child(2) { width: 15%; }
+    #mainTbl th:nth-child(3) { width: 21%; }
+    #mainTbl th:nth-child(4) { width: 7%; }
+    #mainTbl th:nth-child(5) { width: 24%; }
+    #mainTbl th:nth-child(6) { width: 13%; }
+    #mainTbl th:nth-child(7) { width: 16%; }
+    #mainTbl .t-badge, #mainTbl .type-pill, #mainTbl .freq-pill { font-size: 7px !important; padding: 2px 3px !important; }
+    #mainTbl .t-badge { font-size: 6.5px !important; padding: 2px !important; }
+    #mainTbl .yield-v, #mainTbl .men-num { font-size: 8px !important; }
+    #mainTbl .tag { display: none !important; }
+    #mainTbl td:nth-child(7), #mainTbl .freq-pill {
+      white-space: normal !important;
+      overflow-wrap: normal !important;
+      word-break: normal !important;
+      text-align: center;
+    }
+    #mainTbl .freq-pill { display: inline-block; max-width: 100%; }
+    #mainTbl .men-bar { display: none; }
+  }
 </style>
 </head>
 <body>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-eyebrow">Armchair Insider Lounge</div>
-  <h1><em>Recent Sells</em></h1>
-  <p class="hero-date">October 12–25, 2026 &nbsp;·&nbsp; Armchair Community Report</p>
-  <p class="hero-desc">A curated snapshot of tickers recently sold or reduced by community members, organized by mentions, asset class, and yield context for educational discussion.</p>
+  <h1><em>Weekly Sell</em> Summary</h1>
+  <p class="hero-date">October 26–November 8, 2026 &nbsp;·&nbsp; Armchair Community Report</p>
+  <p class="hero-desc">A curated snapshot of tickers recently sold or discussed by community members — ranked by mentions, enriched with asset class and yield context, and presented for educational review.</p>
   <span class="hero-disc">⚠ For community discussion and education only. Not financial advice.</span>
 </section>
-
 <section class="section quarter-context">
   <div class="wrap">
     <p class="sec-eye">◆ Quarterly Context</p>
@@ -696,55 +848,62 @@ button[onclick^="download_"]{
       <div class="q-card"><div class="q-label">Reporting Windows</div><div class="q-value">6</div><div class="q-sub">August 3 through October 25</div></div>
       <div class="q-card"><div class="q-label">Mention Volume</div><div class="q-value">139</div><div class="q-sub">Total community sell mentions</div></div>
       <div class="q-card"><div class="q-label">Peak Period</div><div class="q-value">30</div><div class="q-sub">Sell mentions · August 17–30</div></div>
-      <div class="q-card"><div class="q-label">Latest Leader</div><div class="q-value">HTGC</div><div class="q-sub">3 mentions in the latest period</div></div>
+      <div class="q-card"><div class="q-label">Quarter Leader</div><div class="q-value">PBDC</div><div class="q-sub">8 sell mentions across the full period</div></div>
     </div>
     <div class="q-two q-three">
-      <div class="q-note"><strong>Standout trend:</strong> August–October generated 139 sell mentions across six reporting windows. Activity peaked at 30 mentions in late August, then eased before the latest period concentrated on HTGC and familiar income funds, ETFs, and commodity-income positions.</div>
-      <div class="q-chart"><div class="q-chart-title">August–October Sell Mention Trend</div><div class="q-canvas"><canvas id="quarterSellTrend"></canvas></div><div class="q-bars q-line-fallback"><div class="q-bar-row"><span>Aug 3–16</span><span class="q-track"><span class="q-fill" style="width:80%"></span></span><span>24</span></div><div class="q-bar-row"><span>Aug 17–30</span><span class="q-track"><span class="q-fill" style="width:100%"></span></span><span>30</span></div><div class="q-bar-row"><span>Aug 31–Sep 13</span><span class="q-track"><span class="q-fill" style="width:77%"></span></span><span>23</span></div><div class="q-bar-row"><span>Sep 14–27</span><span class="q-track"><span class="q-fill" style="width:83%"></span></span><span>25</span></div><div class="q-bar-row"><span>Sep 28–Oct 11</span><span class="q-track"><span class="q-fill" style="width:63%"></span></span><span>19</span></div><div class="q-bar-row"><span>Oct 12–25</span><span class="q-track"><span class="q-fill" style="width:60%"></span></span><span>18</span></div></div></div>
-      <div class="q-chart"><div class="q-chart-title">October 12–25 Asset-Class Mix</div><div class="q-canvas"><canvas id="quarterSellMix"></canvas></div><div class="q-bars"><div class="q-bar-row"><span>CEF</span><span class="q-track"><span class="q-fill" style="width:100%"></span></span><span>8</span></div><div class="q-bar-row"><span>ETF</span><span class="q-track"><span class="q-fill" style="width:88%"></span></span><span>7</span></div><div class="q-bar-row"><span>BDC</span><span class="q-track"><span class="q-fill" style="width:38%"></span></span><span>3</span></div></div></div>
+      <div class="q-note"><strong>Standout trend:</strong> August–October generated 139 sell mentions across six reporting windows. PBDC led recurring sell activity with 8 mentions, while income-focused ETFs, closed-end funds, BDCs, and real-estate positions appeared throughout the period.</div>
+      <div class="q-chart"><div class="q-chart-title">August–October Weekly Buy Trend</div><div class="q-canvas"><canvas id="quarterBuyTrend"></canvas></div><div class="q-bars q-line-fallback"><div class="q-bar-row"><span>Aug 3–9</span><span class="q-track"><span class="q-fill" style="width:90%"></span></span><span>75</span></div><div class="q-bar-row"><span>Aug 10–16</span><span class="q-track"><span class="q-fill" style="width:51%"></span></span><span>42</span></div><div class="q-bar-row"><span>Aug 17–23</span><span class="q-track"><span class="q-fill" style="width:73%"></span></span><span>61</span></div><div class="q-bar-row"><span>Aug 24–30</span><span class="q-track"><span class="q-fill" style="width:43%"></span></span><span>36</span></div><div class="q-bar-row"><span>Aug 31–Sep 6</span><span class="q-track"><span class="q-fill" style="width:53%"></span></span><span>44</span></div><div class="q-bar-row"><span>Sep 7–13</span><span class="q-track"><span class="q-fill" style="width:78%"></span></span><span>65</span></div><div class="q-bar-row"><span>Sep 14–20</span><span class="q-track"><span class="q-fill" style="width:70%"></span></span><span>58</span></div><div class="q-bar-row"><span>Sep 21–27</span><span class="q-track"><span class="q-fill" style="width:58%"></span></span><span>48</span></div><div class="q-bar-row"><span>Sep 28–Oct 4</span><span class="q-track"><span class="q-fill" style="width:95%"></span></span><span>79</span></div><div class="q-bar-row"><span>Oct 5–11</span><span class="q-track"><span class="q-fill" style="width:76%"></span></span><span>63</span></div><div class="q-bar-row"><span>Oct 12–18</span><span class="q-track"><span class="q-fill" style="width:80%"></span></span><span>66</span></div><div class="q-bar-row"><span>Oct 19–25</span><span class="q-track"><span class="q-fill" style="width:100%"></span></span><span>83</span></div></div></div>
+      <div class="q-chart"><div class="q-chart-title">October 19–25 Asset-Class Mix</div><div class="q-canvas"><canvas id="quarterBuyMix"></canvas></div><div class="q-bars"><div class="q-bar-row"><span>ETF</span><span class="q-track"><span class="q-fill" style="width:100%"></span></span><span>53</span></div><div class="q-bar-row"><span>CEF</span><span class="q-track"><span class="q-fill" style="width:32%"></span></span><span>17</span></div><div class="q-bar-row"><span>BDC</span><span class="q-track"><span class="q-fill" style="width:11%"></span></span><span>6</span></div><div class="q-bar-row"><span>Preferred</span><span class="q-track"><span class="q-fill" style="width:8%"></span></span><span>4</span></div><div class="q-bar-row"><span>Credit / Bonds</span><span class="q-track"><span class="q-fill" style="width:4%"></span></span><span>2</span></div><div class="q-bar-row"><span>REIT</span><span class="q-track"><span class="q-fill" style="width:2%"></span></span><span>1</span></div></div></div>
     </div>
   </div>
 </section>
 
 
+
+<!-- METRICS -->
 <div class="weekly-metrics-band">
 <div class="wrap">
 <section class="section weekly-metrics-section">
-  <p class="sec-eye">At a Glance</p>
-  <h2 class="sec-title">Weekly Metrics</h2>
+  <div class="weekly-title-row">
+    <div>
+      <p class="sec-eye">At a Glance</p>
+      <h2 class="sec-title">Weekly Metrics</h2>
+    </div>
+    <div class="weekly-covered"><span>Period Covered</span><strong>Oct 26–Nov 8, 2026</strong></div>
+  </div>
   <div class="rule"></div>
   <div class="metrics">
-    <div class="metric-card m-card reveal">
-      <span class="m-label">Tickers Sold</span>
-      <strong>16</strong>
-      <span class="m-meta">Unique tickers in the sell summary</span>
-    </div>
-    <div class="metric-card m-card reveal">
-      <span class="m-label">Total Sell Mentions</span>
-      <strong>18</strong>
-      <span class="m-meta">Aggregated across all listed tickers</span>
-    </div>
-    <div class="metric-card m-card reveal metric-most">
-      <span class="m-label">Most Sold</span>
-      <strong>HTGC</strong>
-      <span class="m-meta">3 mentions · highest sell activity this period</span>
-    </div>
-    <div class="metric-card m-card reveal">
-      <span class="m-label">Highest Yield</span>
-      <strong>30.88%</strong>
-      <span class="m-meta">KSLV — Kurv Silver Enhanced Income ETF</span>
-    </div>
-    <div class="metric-card m-card reveal">
-      <span class="m-label">Top Asset Class</span>
-      <strong>CEFs</strong>
-      <span class="m-meta">8 tickers and 8 sell mentions</span>
-    </div>
-    <div class="metric-card m-card reveal">
-      <span class="m-label">Average Yield</span>
-      <strong>14.30%</strong>
-      <span class="m-meta">Across all 16 tickers this period</span>
-    </div>
+  <div class="metric-card m-card reveal">
+    <span class="m-label">Tickers Mentioned</span>
+    <strong>27</strong>
+    <span class="m-meta">Unique tickers across all sells</span>
   </div>
+  <div class="metric-card m-card reveal">
+    <span class="m-label">Total Sell Mentions</span>
+    <strong>29</strong>
+    <span class="m-meta">Aggregated across all members this period</span>
+  </div>
+  <div class="metric-card m-card reveal metric-most">
+    <span class="m-label">Most Mentioned</span>
+    <strong>IYRI</strong>
+    <span class="m-meta">3 mentions · highest sell activity</span>
+  </div>
+  <div class="metric-card m-card reveal">
+    <span class="m-label">Highest Yield</span>
+    <strong>36.00%</strong>
+    <span class="m-meta">BLOX — Nicholas Crypto Income ETF</span>
+  </div>
+  <div class="metric-card m-card reveal">
+    <span class="m-label">Top Asset Class</span>
+    <strong>ETFs</strong>
+    <span class="m-meta">12 tickers and 14 total mentions</span>
+  </div>
+  <div class="metric-card m-card reveal">
+    <span class="m-label">Average Yield</span>
+    <strong>16.37%</strong>
+    <span class="m-meta">Across all 27 tickers this period</span>
+  </div>
+</div>
 </section>
 </div>
 </div>
@@ -752,34 +911,52 @@ button[onclick^="download_"]{
 <div class="chart-bg summary-analytics">
 <div class="wrap section summary-analytics-inner">
   <p class="sec-eye">◆ Visual Analytics</p>
-  <h2 class="sec-title">Recent Sell Breakdown</h2>
+  <h2 class="sec-title">Weekly Sell Breakdown</h2>
   <div class="rule"></div>
   <div class="charts-grid">
-    <div class="c-card"><div class="c-title">Tickers by Sell Mentions</div><div class="c-sub">HTGC leads with 3 sell mentions; all other listed tickers have 1</div><div class="c-wrap"><canvas id="mentChart" height="280"></canvas></div></div>
-    <div class="c-card"><div class="c-title">Top 10 Tickers by Yield</div><div class="c-sub">High-yield positions highlighted for attention</div><div class="c-wrap"><canvas id="yieldChart" height="280"></canvas></div></div>
-    <div class="c-card"><div class="c-title">Asset Class Distribution</div><div class="c-sub">Share of tickers by broad category</div><div class="c-wrap" style="max-width:400px;margin:0 auto;"><canvas id="donutChart" height="260"></canvas></div></div>
+
+    <div class="c-card">
+      <div class="c-title">Top Tickers by Mentions</div>
+      <div class="c-sub">Top 10 sell tickers, ranked by mentions</div>
+      <div class="c-wrap"><canvas id="mentChart" height="280"></canvas></div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-title">Top 10 Tickers by Yield</div>
+      <div class="c-sub">Color-coded by yield level</div>
+      <div class="c-wrap"><canvas id="yieldChart" height="280"></canvas></div>
+    </div>
+
+    <div class="c-card">
+      <div class="c-title">Asset Class Distribution</div>
+      <div class="c-sub">Share of tickers by broad category</div>
+      <div class="c-wrap" style="max-width:400px;margin:0 auto;"><canvas id="donutChart" height="260"></canvas></div>
+    </div>
+
     
+
   </div>
 </div>
 </div>
 
+<!-- TABLE -->
 <div class="wrap">
 <section class="section">
   <p class="sec-eye">◆ Full List</p>
-  <h2 class="sec-title">All 16 Recent Sell Tickers</h2>
+  <h2 class="sec-title">All 27 Tickers This Period</h2>
   <div class="rule"></div>
   <div class="tbl-ctrl">
-    <input type="text" class="s-box" id="sBox" placeholder="Search ticker, name, or asset class…" oninput="filterTbl()">
-    <button class="f-btn active" data-f="all" onclick="setF('all')">All</button>
-    <button class="f-btn" data-f="CEF" onclick="setF('CEF')">CEF</button>
-    <button class="f-btn" data-f="ETF" onclick="setF('ETF')">ETF</button>
-    <button class="f-btn" data-f="PREF" onclick="setF('PREF')">Preferred</button>
-    <button class="f-btn" data-f="EQ" onclick="setF('EQ')">Equity / BDC</button>
-    <button class="f-btn" data-f="hi2" onclick="setF('hi2')">2+ Mentions</button>
-    <button class="f-btn" data-f="hy10" onclick="setF('hy10')">Yield &gt;10%</button>
+    <input type="text" class="s-box" id="sBox" placeholder="Search ticker or name…" oninput="filterTbl()">
+    <button class="f-btn active" data-f="all"   onclick="setF('all')">All</button>
+    <button class="f-btn"        data-f="CEF"   onclick="setF('CEF')">CEF</button>
+    <button class="f-btn"        data-f="ETF"   onclick="setF('ETF')">ETF</button>
+    <button class="f-btn"        data-f="PREF"  onclick="setF('PREF')">Preferred</button>
+    <button class="f-btn"        data-f="EQ"    onclick="setF('EQ')">Equity</button>
+    <button class="f-btn"        data-f="hi2"   onclick="setF('hi2')">2+ Mentions</button>
+    <button class="f-btn"        data-f="hy10"  onclick="setF('hy10')">Yield &gt;10%</button>
     <button onclick="download_mainTbl()" style="display:inline-flex;align-items:center;gap:7px;padding:9px 16px;background:#1F6B47;color:#fff;border:none;border-radius:7px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:.02em;transition:background .15s;white-space:nowrap;" onmouseover="this.style.background='#174f34'" onmouseout="this.style.background='#1F6B47'">⬇ Download Table as Excel</button>
-    <a class="pdf-btn" href="Armchair-Insider-Weekly-Sell-Summary-October-12-25-2026.pdf" target="_blank" rel="noopener">View PDF</a>
-    <span class="r-count" id="rCount">16 tickers</span>
+    <a class="pdf-btn" href="Armchair-Insider-Weekly-Sell-Summary-October-26-November-8-2026.pdf" target="_blank" rel="noopener">View PDF</a>
+    <span class="r-count" id="rCount">27 tickers</span>
   </div>
   <div class="tbl-wrap">
     <table id="mainTbl">
@@ -800,64 +977,643 @@ button[onclick^="download_"]{
 </section>
 </div>
 
+<!-- FOOTER -->
 <footer>
-  <div><span>Armchair Insider Lounge</span> &nbsp;·&nbsp; Recent Sells &nbsp;·&nbsp; October 12–25, 2026</div>
+  <div><span>Armchair Insider Lounge</span> &nbsp;·&nbsp; Weekly Sell Summary &nbsp;·&nbsp; October 26–November 8, 2026</div>
   <div>Tickers shown are compatible with Seeking Alpha. Tickers for other websites and brokerages may vary.</div>
   <div>For discussion and educational purposes only. Not investment advice.</div>
 </footer>
 
 <script>
 const ARCHIVED_DATA = [
-  {"rank":1,"ticker":"NMZ","name":"Nuveen Municipal High Income Opportunity Fund","mentions":2,"ac":"Municipal Bond Closed-End Fund","yield":8.19,"freq":"Monthly"},
-  {"rank":2,"ticker":"KYLD","name":"Kurv High Income ETF","mentions":2,"ac":"Equity Derivative Income ETF","yield":23.70,"freq":"Weekly"},
-  {"rank":3,"ticker":"UTF","name":"Cohen & Steers Infrastructure Fund Inc","mentions":1,"ac":"Infrastructure/Utilities Closed-End Fund","yield":7.64,"freq":"Monthly"},
-  {"rank":4,"ticker":"TYG","name":"Tortoise Energy Infrastructure Corp","mentions":1,"ac":"Energy Infrastructure/MLP Closed-End Fund","yield":12.91,"freq":"Monthly"},
-  {"rank":5,"ticker":"TSPY","name":"TappAlpha SPY Growth & Daily Income ETF","mentions":1,"ac":"Equity Derivative Income ETF (0DTE Covered Call)","yield":14.07,"freq":"Monthly"},
-  {"rank":6,"ticker":"SPE","name":"Special Opportunities Fund, Inc.","mentions":1,"ac":"Multi-Strategy/Activist Closed-End Fund","yield":9.79,"freq":"Monthly"},
-  {"rank":7,"ticker":"RFI","name":"Cohen & Steers Total Return Realty Fund, Inc.","mentions":1,"ac":"Real Estate (REIT) Closed-End Fund","yield":8.72,"freq":"Monthly"},
-  {"rank":8,"ticker":"PTY","name":"PIMCO Corporate & Income Opportunity Fund","mentions":1,"ac":"Multi-Sector Bond Closed-End Fund","yield":12.47,"freq":"Monthly"},
-  {"rank":9,"ticker":"PFN","name":"PIMCO Income Strategy Fund II","mentions":1,"ac":"Floating Rate/Income Closed-End Fund","yield":12.98,"freq":"Monthly"},
-  {"rank":10,"ticker":"PFFA","name":"Virtus InfraCap U.S. Preferred Stock ETF","mentions":1,"ac":"Preferred Stock ETF","yield":9.99,"freq":"Monthly"},
-  {"rank":11,"ticker":"PEO","name":"Adams Natural Resources Fund, Inc.","mentions":1,"ac":"Natural Resources Equity Closed-End Fund","yield":7.36,"freq":"Quarterly"},
-  {"rank":12,"ticker":"PDI","name":"PIMCO Dynamic Income Fund","mentions":1,"ac":"Multi-Sector Bond Closed-End Fund","yield":17.93,"freq":"Monthly"},
-  {"rank":13,"ticker":"MSTY","name":"YieldMax MSTR Option Income Strategy ETF","mentions":1,"ac":"Single-Stock Derivative Income ETF","yield":100.58,"freq":"Weekly"},
-  {"rank":14,"ticker":"JRI","name":"Nuveen Real Asset Income and Growth Fund","mentions":1,"ac":"Real Asset Balanced Closed-End Fund","yield":13.34,"freq":"Monthly"},
-  {"rank":15,"ticker":"IDVO","name":"Amplify CWP International Enhanced Dividend Income ETF","mentions":1,"ac":"International Equity Covered Call ETF","yield":5.71,"freq":"Monthly"},
-  {"rank":16,"ticker":"HTGC","name":"Hercules Capital, Inc.","mentions":1,"ac":"Business Development Company (BDC)","yield":10.80,"freq":"Quarterly"},
-  {"rank":17,"ticker":"HQH","name":"abrdn Healthcare Investors (formerly Tekla Healthcare Investors)","mentions":1,"ac":"Healthcare Sector Equity Closed-End Fund","yield":12.13,"freq":"Quarterly"},
-  {"rank":18,"ticker":"FOF","name":"Cohen & Steers Closed-End Opportunity Fund, Inc.","mentions":1,"ac":"Closed-End Fund of Funds","yield":8.09,"freq":"Monthly"},
-  {"rank":19,"ticker":"CII","name":"BlackRock Enhanced Capital and Income Fund, Inc.","mentions":1,"ac":"Equity Covered Call Closed-End Fund","yield":7.00,"freq":"Monthly"},
-  {"rank":20,"ticker":"BTCI","name":"NEOS Bitcoin High Income ETF","mentions":1,"ac":"Bitcoin/Crypto Covered Call ETF","yield":25.61,"freq":"Monthly"},
-  {"rank":21,"ticker":"BRW","name":"Saba Capital Income & Opportunities Fund","mentions":1,"ac":"Multi-Strategy Fixed Income Closed-End Fund","yield":15.94,"freq":"Monthly"}
+  {
+    rank: 1,
+    ticker: "CAIE",
+    name: "Calamos Autocallable Income ETF",
+    mentions: 3,
+    assetClass: "ETF — Structured/Derivative Income (Alternatives, autocallable notes)",
+    yield: 13.97,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 2,
+    ticker: "RQI",
+    name: "Cohen & Steers Quality Income Realty Fund",
+    mentions: 2,
+    assetClass: "Closed-End Fund — Real Estate Equity (REITs)",
+    yield: 8.92,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 3,
+    ticker: "PFFA",
+    name: "Virtus InfraCap U.S. Preferred Stock ETF",
+    mentions: 2,
+    assetClass: "ETF — Preferred Stock (Fixed Income)",
+    yield: 9.83,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 4,
+    ticker: "IYRI",
+    name: "NEOS Real Estate High Income ETF",
+    mentions: 2,
+    assetClass: "ETF — Real Estate Equity / Derivative Income",
+    yield: 8.82,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 5,
+    ticker: "CHI",
+    name: "Calamos Convertible Opportunities and Income Fund",
+    mentions: 2,
+    assetClass: "Closed-End Fund — Convertible Securities & High Yield Bonds",
+    yield: 10.84,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 6,
+    ticker: "WTPI",
+    name: "WisdomTree Equity Premium Income Fund",
+    mentions: 1,
+    assetClass: "ETF — Equity Options Income (Put-Write strategy)",
+    yield: 12.13,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 7,
+    ticker: "WDI",
+    name: "Western Asset Diversified Income Fund",
+    mentions: 1,
+    assetClass: "Closed-End Fund — Multi-Sector Fixed Income",
+    yield: 14.10,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 8,
+    ticker: "VAIE",
+    name: "VegaShares US Equity Autocallable Income ETF",
+    mentions: 1,
+    assetClass: "ETF — Structured/Derivative Income (Alternatives, autocallable notes)",
+    yield: 16.25,
+    paymentFrequency: "Weekly"
+  },
+  {
+    rank: 9,
+    ticker: "UTG",
+    name: "Reaves Utility Income Fund",
+    mentions: 1,
+    assetClass: "Closed-End Fund — Utilities Equity & Fixed Income (Balanced)",
+    yield: 6.58,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 10,
+    ticker: "UTF",
+    name: "Cohen & Steers Infrastructure Fund",
+    mentions: 1,
+    assetClass: "Closed-End Fund — Infrastructure Equity",
+    yield: 7.39,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 11,
+    ticker: "TRIN",
+    name: "Trinity Capital Inc.",
+    mentions: 1,
+    assetClass: "BDC (Business Development Company) — Common Stock",
+    yield: 11.20,
+    paymentFrequency: "Quarterly"
+  },
+  {
+    rank: 12,
+    ticker: "STWD",
+    name: "Starwood Property Trust, Inc.",
+    mentions: 1,
+    assetClass: "REIT (Mortgage/Commercial Real Estate) — Common Stock",
+    yield: 11.94,
+    paymentFrequency: "Quarterly"
+  },
+  {
+    rank: 13,
+    ticker: "SCYB",
+    name: "Schwab High Yield Bond ETF",
+    mentions: 1,
+    assetClass: "ETF — High Yield Corporate Bonds",
+    yield: 6.91,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 14,
+    ticker: "RVT",
+    name: "Royce Small-Cap Trust, Inc.",
+    mentions: 1,
+    assetClass: "Closed-End Fund — Small-Cap Equity",
+    yield: 7.15,
+    paymentFrequency: "Quarterly"
+  },
+  {
+    rank: 15,
+    ticker: "RITM",
+    name: "Rithm Capital Corp.",
+    mentions: 1,
+    assetClass: "REIT / Diversified Asset Manager — Common Stock",
+    yield: 9.92,
+    paymentFrequency: "Quarterly"
+  },
+  {
+    rank: 16,
+    ticker: "QDVO",
+    name: "Amplify CWP Growth & Income ETF",
+    mentions: 1,
+    assetClass: "ETF — Large-Cap Growth Equity / Derivative (Covered Call) Income",
+    yield: 11.02,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 17,
+    ticker: "PTY",
+    name: "PIMCO Corporate & Income Opportunity Fund",
+    mentions: 1,
+    assetClass: "Closed-End Fund — Corporate Bonds / Multi-Sector Income",
+    yield: 12.13,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 18,
+    ticker: "PTA",
+    name: "Cohen & Steers Tax-Advantaged Preferred Securities and Income Fund",
+    mentions: 1,
+    assetClass: "Closed-End Fund — Preferred Securities",
+    yield: 8.72,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 19,
+    ticker: "PBDC",
+    name: "Putnam BDC Income ETF",
+    mentions: 1,
+    assetClass: "ETF — BDC Equity",
+    yield: 10.83,
+    paymentFrequency: "Quarterly"
+  },
+  {
+    rank: 20,
+    ticker: "OVL",
+    name: "Overlay Shares Large Cap Equity ETF",
+    mentions: 1,
+    assetClass: "ETF — Large-Cap Equity + Options Overlay",
+    yield: 8.09,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 21,
+    ticker: "MAIN",
+    name: "Main Street Capital Corporation",
+    mentions: 1,
+    assetClass: "BDC — Common Stock",
+    yield: 7.59,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 22,
+    ticker: "KSLV",
+    name: "Kurv Silver Enhanced Income ETF",
+    mentions: 1,
+    assetClass: "ETF — Commodity (Silver) / Derivative Income",
+    yield: 25.95,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 23,
+    ticker: "KGLD",
+    name: "Kurv Gold Enhanced Income ETF",
+    mentions: 1,
+    assetClass: "ETF — Commodity (Gold) / Derivative Income",
+    yield: 14.53,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 24,
+    ticker: "JAAA",
+    name: "Janus Henderson AAA CLO ETF",
+    mentions: 1,
+    assetClass: "ETF — Fixed Income (AAA-rated CLOs)",
+    yield: 5.33,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 25,
+    ticker: "IWMI",
+    name: "NEOS Russell 2000 High Income ETF",
+    mentions: 1,
+    assetClass: "ETF — Small-Cap Equity / Derivative (Covered Call) Income",
+    yield: 14.51,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 26,
+    ticker: "GPIX",
+    name: "Goldman Sachs S&P 500 Premium Income ETF",
+    mentions: 1,
+    assetClass: "ETF — Large-Cap Equity / Derivative (Covered Call) Income",
+    yield: 8.11,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 27,
+    ticker: "GPIQ",
+    name: "Goldman Sachs Nasdaq-100 Premium Income ETF",
+    mentions: 1,
+    assetClass: "ETF — Large-Cap Tech Equity / Derivative (Covered Call) Income",
+    yield: 10.12,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 28,
+    ticker: "CSWC",
+    name: "Capital Southwest Corporation",
+    mentions: 1,
+    assetClass: "BDC — Common Stock",
+    yield: 10.42,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 29,
+    ticker: "CHY",
+    name: "Calamos Convertible and High Income Fund",
+    mentions: 1,
+    assetClass: "Closed-End Fund — Convertible Securities & High Yield Bonds",
+    yield: 9.34,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 30,
+    ticker: "CHW",
+    name: "Calamos Global Dynamic Income Fund",
+    mentions: 1,
+    assetClass: "Closed-End Fund — Global Balanced (Equity/Convertibles/Bonds)",
+    yield: 8.40,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 31,
+    ticker: "CEFS",
+    name: "Saba Opportunistic Hedged Closed-End Funds ETF",
+    mentions: 1,
+    assetClass: "ETF — Fund-of-Closed-End-Funds",
+    yield: 7.15,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 32,
+    ticker: "BUI",
+    name: "BlackRock Utilities, Infrastructure & Power Opportunities Trust",
+    mentions: 1,
+    assetClass: "Closed-End Fund — Utilities/Infrastructure Equity",
+    yield: 6.94,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 33,
+    ticker: "BTCI",
+    name: "NEOS Bitcoin High Income ETF",
+    mentions: 1,
+    assetClass: "ETF — Digital Assets (Bitcoin) / Derivative Income",
+    yield: 25.61,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 34,
+    ticker: "BME",
+    name: "BlackRock Health Sciences Trust",
+    mentions: 1,
+    assetClass: "Closed-End Fund — Healthcare/Biotech Equity",
+    yield: 6.87,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 35,
+    ticker: "AVK",
+    name: "Advent Convertible and Income Fund",
+    mentions: 1,
+    assetClass: "Closed-End Fund — Convertible Securities",
+    yield: 11.34,
+    paymentFrequency: "Monthly"
+  },
+  {
+    rank: 36,
+    ticker: "ARCC",
+    name: "Ares Capital Corporation",
+    mentions: 1,
+    assetClass: "BDC — Common Stock",
+    yield: 9.58,
+    paymentFrequency: "Quarterly"
+  },
+  {
+    rank: 37,
+    ticker: "ADX",
+    name: "Adams Diversified Equity Fund, Inc.",
+    mentions: 1,
+    assetClass: "Closed-End Fund — Diversified U.S. Equity",
+    yield: 7.65,
+    paymentFrequency: "Quarterly"
+  },
+  {
+    rank: 38,
+    ticker: "ADAMK",
+    name: "Adamas Trust 9.60% Senior Notes due 2031",
+    mentions: 1,
+    assetClass: "Baby Bond — Exchange-Traded Corporate Debt (fixed coupon)",
+    yield: 9.65,
+    paymentFrequency: "Quarterly"
+  }
 ];
 
-const DATA = [
-  {"rank":1,"ticker":"HTGC","name":"Hercules Capital, Inc.","mentions":3,"ac":"BDC – Venture lending","yield":11.46,"freq":"Quarterly"},
-  {"rank":2,"ticker":"PGZ","name":"Principal Real Estate Income Fund","mentions":1,"ac":"CEF – Real estate securities and mortgage credit","yield":14.47,"freq":"Monthly"},
-  {"rank":3,"ticker":"PEO","name":"Adams Natural Resources Fund, Inc.","mentions":1,"ac":"CEF – Energy and natural resources equities","yield":7.02,"freq":"Quarterly"},
-  {"rank":4,"ticker":"PDI","name":"PIMCO Dynamic Income Fund","mentions":1,"ac":"CEF – Multi-sector fixed income","yield":18.49,"freq":"Monthly"},
-  {"rank":5,"ticker":"NIHI","name":"NEOS MSCI EAFE High Income ETF","mentions":1,"ac":"ETF – International equities and call-option income","yield":9.74,"freq":"Monthly"},
-  {"rank":6,"ticker":"MLPI","name":"NEOS MLP & Energy Infrastructure High Income ETF","mentions":1,"ac":"ETF – Energy infrastructure/MLPs and call-option income","yield":14.34,"freq":"Monthly"},
-  {"rank":7,"ticker":"KSLV","name":"Kurv Silver Enhanced Income ETF","mentions":1,"ac":"ETF – Silver and options-based income","yield":30.88,"freq":"Monthly"},
-  {"rank":8,"ticker":"KGLD","name":"Kurv Gold Enhanced Income ETF","mentions":1,"ac":"ETF – Gold and options-based income","yield":16.55,"freq":"Monthly"},
-  {"rank":9,"ticker":"IWMI","name":"NEOS Russell 2000 High Income ETF","mentions":1,"ac":"ETF – Small-cap equities and call-option income","yield":14.60,"freq":"Monthly"},
-  {"rank":10,"ticker":"HTD","name":"John Hancock Tax-Advantaged Dividend Income Fund","mentions":1,"ac":"CEF – Dividend equities and preferred securities","yield":8.35,"freq":"Monthly"},
-  {"rank":11,"ticker":"HQH","name":"abrdn Healthcare Investors","mentions":1,"ac":"CEF – Healthcare equities","yield":13.02,"freq":"Quarterly"},
-  {"rank":12,"ticker":"GPIX","name":"Goldman Sachs S&P 500 Core Premium Income ETF","mentions":1,"ac":"ETF – S&P 500 equities and call-option income","yield":8.17,"freq":"Monthly"},
-  {"rank":13,"ticker":"FEPI","name":"REX FANG & Innovation Equity Premium Income ETF","mentions":1,"ac":"ETF – Technology equities and covered calls","yield":25.22,"freq":"Weekly"},
-  {"rank":14,"ticker":"EIC","name":"Eagle Point Income Company Inc.","mentions":1,"ac":"CEF – CLO debt securities","yield":15.07,"freq":"Monthly"},
-  {"rank":15,"ticker":"DHF","name":"BNY Mellon High Yield Strategies Fund","mentions":1,"ac":"CEF – High-yield corporate debt","yield":9.63,"freq":"Monthly"},
-  {"rank":16,"ticker":"BGH","name":"Barings Global Short Duration High Yield Fund","mentions":1,"ac":"CEF – Global short-duration high-yield bonds and loans","yield":11.76,"freq":"Monthly"}
+const PREVIOUS_DATA = [
+  {rank:1,ticker:"ADAMK",name:"Adamas Trust, Inc. 9.600% Senior Notes due 2031",mentions:6,assetClass:"Corporate senior note (mortgage REIT)",yield:9.62,paymentFrequency:"Quarterly"},
+  {rank:2,ticker:"O",name:"Realty Income Corporation",mentions:5,assetClass:"Equity REIT (net lease retail)",yield:5.75,paymentFrequency:"Monthly"},
+  {rank:3,ticker:"UTF",name:"Cohen & Steers Infrastructure Fund, Inc.",mentions:4,assetClass:"Closed-end fund (infrastructure equity)",yield:8.01,paymentFrequency:"Monthly"},
+  {rank:4,ticker:"IWMI",name:"NEOS Russell 2000 High Income ETF",mentions:3,assetClass:"ETF (equity income / covered call, small-cap)",yield:14.51,paymentFrequency:"Monthly"},
+  {rank:5,ticker:"ADAMO",name:"Adamas Trust, Inc. 9.250% Senior Notes due 2031",mentions:3,assetClass:"Corporate senior note (mortgage REIT)",yield:9.25,paymentFrequency:"Quarterly"},
+  {rank:6,ticker:"TYG",name:"Tortoise Energy Infrastructure Corporation",mentions:2,assetClass:"Closed-end fund (energy/MLP equity)",yield:13.35,paymentFrequency:"Monthly"},
+  {rank:7,ticker:"MLPI",name:"NEOS MLP & Energy Infrastructure High Income ETF",mentions:2,assetClass:"ETF (MLP/energy income)",yield:14.19,paymentFrequency:"Monthly"},
+  {rank:8,ticker:"IDVO",name:"Amplify CWP International Enhanced Dividend Income ETF",mentions:2,assetClass:"ETF (international equity income)",yield:5.79,paymentFrequency:"Monthly"},
+  {rank:9,ticker:"HTD",name:"John Hancock Tax-Advantaged Dividend Income Fund",mentions:2,assetClass:"Closed-end fund (equity income)",yield:8.02,paymentFrequency:"Monthly"},
+  {rank:10,ticker:"GAB",name:"The Gabelli Equity Trust Inc.",mentions:2,assetClass:"Closed-end fund (equity)",yield:11.09,paymentFrequency:"Monthly"},
+  {rank:11,ticker:"ADAMH",name:"Adamas Trust, Inc. 9.875% Senior Notes due 2030",mentions:2,assetClass:"Corporate senior note (mortgage REIT)",yield:9.61,paymentFrequency:"Quarterly"},
+  {rank:12,ticker:"WHFCL",name:"WhiteHorse Finance, Inc. 7.875% Notes due 2028",mentions:1,assetClass:"Corporate senior note (BDC)",yield:7.68,paymentFrequency:"Quarterly"},
+  {rank:13,ticker:"TRINI",name:"Trinity Capital Inc. 7.875% Notes due 2029",mentions:1,assetClass:"Corporate senior note (BDC)",yield:7.74,paymentFrequency:"Quarterly"},
+  {rank:14,ticker:"RWTO",name:"Redwood Trust, Inc. 9.00% Senior Notes due 2029",mentions:1,assetClass:"Corporate senior note (mortgage REIT)",yield:8.88,paymentFrequency:"Quarterly"},
+  {rank:15,ticker:"RWAYL",name:"Runway Growth Finance Corp. 7.50% Notes due 2027",mentions:1,assetClass:"Corporate senior note (BDC)",yield:7.41,paymentFrequency:"Quarterly"},
+  {rank:16,ticker:"RITM.PR.E",name:"Rithm Capital Corp. 8.750% Series E Preferred Stock",mentions:1,assetClass:"Preferred stock (cumulative, mortgage REIT)",yield:9.03,paymentFrequency:"Quarterly"},
+  {rank:17,ticker:"PTY",name:"PIMCO Corporate & Income Opportunity Fund",mentions:1,assetClass:"Closed-end fund (fixed income)",yield:12.66,paymentFrequency:"Monthly"},
+  {rank:18,ticker:"PFFA",name:"Virtus InfraCap U.S. Preferred Stock ETF",mentions:1,assetClass:"ETF (preferred stock)",yield:9.96,paymentFrequency:"Monthly"},
+  {rank:19,ticker:"PDI",name:"PIMCO Dynamic Income Fund",mentions:1,assetClass:"Closed-end fund (fixed income)",yield:18.36,paymentFrequency:"Monthly"},
+  {rank:20,ticker:"OVL",name:"Overlay Shares Large Cap Equity ETF",mentions:1,assetClass:"ETF (large-cap equity + put-spread overlay)",yield:8.16,paymentFrequency:"Monthly"},
+  {rank:21,ticker:"NNN",name:"NNN REIT, Inc.",mentions:1,assetClass:"Equity REIT (net lease retail)",yield:5.97,paymentFrequency:"Quarterly"},
+  {rank:22,ticker:"NMFCZ",name:"New Mountain Finance Corporation 8.250% Notes due 2028",mentions:1,assetClass:"Corporate senior note (BDC)",yield:8.15,paymentFrequency:"Quarterly"},
+  {rank:23,ticker:"NIHI",name:"NEOS MSCI EAFE High Income ETF",mentions:1,assetClass:"ETF (international equity income / covered call)",yield:9.71,paymentFrequency:"Monthly"},
+  {rank:24,ticker:"NEE.PR.U",name:"NextEra Energy Capital Holdings, Inc. CAL 85",mentions:1,assetClass:"Junior subordinated debenture (hybrid, utility)",yield:6.26,paymentFrequency:"Quarterly"},
+  {rank:25,ticker:"HAKY",name:"Amplify HACK Cybersecurity Covered Call ETF",mentions:1,assetClass:"ETF (sector equity, covered call)",yield:15.19,paymentFrequency:"Monthly"},
+  {rank:26,ticker:"GOF",name:"Guggenheim Strategic Opportunities Fund",mentions:1,assetClass:"Closed-end fund (multi-asset/fixed income)",yield:25.29,paymentFrequency:"Monthly"},
+  {rank:27,ticker:"EMO",name:"ClearBridge Energy Midstream Opportunity Fund Inc.",mentions:1,assetClass:"Closed-end fund (energy/MLP equity)",yield:9.14,paymentFrequency:"Quarterly"},
+  {rank:28,ticker:"CEFS",name:"Saba Closed-End Funds ETF",mentions:1,assetClass:"ETF (fund of closed-end funds)",yield:7.28,paymentFrequency:"Monthly"},
+  {rank:29,ticker:"CAIQ",name:"Calamos Nasdaq Autocallable Income ETF",mentions:1,assetClass:"ETF (structured/autocallable income)",yield:18.25,paymentFrequency:"Monthly"},
+  {rank:30,ticker:"CAIE",name:"Calamos Autocallable Income ETF",mentions:1,assetClass:"ETF (structured/autocallable income)",yield:14.17,paymentFrequency:"Monthly"},
+  {rank:31,ticker:"BW.PR.A",name:"Babcock & Wilcox Enterprises, Inc. 7.75% CUM PFD A",mentions:1,assetClass:"Preferred stock (cumulative, industrial)",yield:8.75,paymentFrequency:"Quarterly"},
+  {rank:32,ticker:"BIPH",name:"Brookfield Infrastructure Finance ULC 5.000% Subordinated Notes due 2081",mentions:1,assetClass:"Corporate subordinated note (infrastructure)",yield:5.05,paymentFrequency:"Quarterly"},
+  {rank:33,ticker:"AIO",name:"Virtus Artificial Intelligence & Technology Opportunities Fund",mentions:1,assetClass:"Closed-end fund (equity, thematic tech/AI)",yield:8.76,paymentFrequency:"Monthly"},
+  {rank:34,ticker:"ADAMI",name:"Adamas Trust, Inc. 9.125% Senior Notes due 2029",mentions:1,assetClass:"Corporate senior note (mortgage REIT)",yield:9.07,paymentFrequency:"Quarterly"},
+  {rank:35,ticker:"ADAMG",name:"Adamas Trust, Inc. 9.125% Senior Notes due 2030",mentions:1,assetClass:"Corporate senior note (mortgage REIT)",yield:9.02,paymentFrequency:"Quarterly"},
+  {rank:36,ticker:"ABXL",name:"Abacus Global Management, Inc. 9.875% Fixed-Rate Senior Notes due 2028",mentions:1,assetClass:"Corporate senior note (life settlements/asset mgmt)",yield:9.63,paymentFrequency:"Quarterly"}
 ];
 
+let DATA = [
+  {rank:1,ticker:"PFFA",name:"Virtus InfraCap U.S. Preferred Stock ETF",mentions:5,assetClass:"Preferred Stock ETF",yield:10.57,paymentFrequency:"Monthly"},
+  {rank:2,ticker:"KGLD",name:"Kurv Gold Enhanced Income ETF",mentions:3,assetClass:"Covered Call ETF (Gold)",yield:16.55,paymentFrequency:"Monthly"},
+  {rank:3,ticker:"DX.PR.D",name:"Dynex Capital, Inc. 9.375% Series D Fixed-Rate Cumulative Redeemable Preferred Stock",mentions:3,assetClass:"Preferred Stock (Mortgage REIT)",yield:9.39,paymentFrequency:"Quarterly"},
+  {rank:4,ticker:"CEFS",name:"Saba Opportunistically Hedged Closed-End Funds ETF",mentions:3,assetClass:"CEF Fund-of-Funds ETF",yield:7.79,paymentFrequency:"Monthly"},
+  {rank:5,ticker:"ASGI",name:"abrdn Global Infrastructure Income Fund",mentions:3,assetClass:"Infrastructure CEF",yield:13.72,paymentFrequency:"Quarterly"},
+  {rank:6,ticker:"UTF",name:"Cohen & Steers Infrastructure Fund, Inc.",mentions:2,assetClass:"Infrastructure Equity CEF",yield:7.69,paymentFrequency:"Quarterly"},
+  {rank:7,ticker:"PTY",name:"PIMCO Corporate & Income Opportunity Fund",mentions:2,assetClass:"Multi-Sector Bond CEF",yield:13.00,paymentFrequency:"Monthly"},
+  {rank:8,ticker:"MAIN",name:"Main Street Capital Corporation",mentions:2,assetClass:"BDC",yield:8.15,paymentFrequency:"Monthly"},
+  {rank:9,ticker:"CSWC",name:"Capital Southwest Corporation",mentions:2,assetClass:"BDC",yield:10.88,paymentFrequency:"Quarterly"},
+  {rank:10,ticker:"AGNCZ",name:"AGNC Investment Corp. 8.75 DEP PF SR H",mentions:2,assetClass:"Preferred Stock (Mortgage REIT)",yield:9.01,paymentFrequency:"Quarterly"},
+  {rank:11,ticker:"UTG",name:"Reaves Utility Income Fund",mentions:1,assetClass:"Utilities Equity CEF",yield:6.92,paymentFrequency:"Quarterly"},
+  {rank:12,ticker:"TRIN",name:"Trinity Capital Inc.",mentions:1,assetClass:"BDC",yield:11.93,paymentFrequency:"Quarterly"},
+  {rank:13,ticker:"TLTW",name:"iShares 20+ Year Treasury Bond BuyWrite Strategy ETF",mentions:1,assetClass:"Covered Call ETF (Treasuries)",yield:11.88,paymentFrequency:"Monthly"},
+  {rank:14,ticker:"THQ",name:"abrdn Healthcare Opportunities Fund",mentions:1,assetClass:"Healthcare Equity CEF",yield:11.42,paymentFrequency:"Quarterly"},
+  {rank:15,ticker:"STWD",name:"Starwood Property Trust, Inc.",mentions:1,assetClass:"Mortgage REIT",yield:15.11,paymentFrequency:"Quarterly"},
+  {rank:16,ticker:"SCYB",name:"Schwab High Yield Bond ETF",mentions:1,assetClass:"High Yield Bond ETF",yield:6.89,paymentFrequency:"Monthly"},
+  {rank:17,ticker:"RVT",name:"Royce Small-Cap Trust, Inc.",mentions:1,assetClass:"Small-Cap Equity CEF",yield:7.77,paymentFrequency:"Quarterly"},
+  {rank:18,ticker:"RQI",name:"Cohen & Steers Quality Income Realty Fund, Inc.",mentions:1,assetClass:"Real Estate CEF",yield:9.62,paymentFrequency:"Monthly"},
+  {rank:19,ticker:"RITM.PR.F",name:"Rithm Capital Corp. 8.750% Series F Fixed-Rate Reset Cumulative Redeemable Preferred Stock",mentions:1,assetClass:"Preferred Stock (Mortgage REIT)",yield:8.98,paymentFrequency:"Quarterly"},
+  {rank:20,ticker:"PFFI",name:"Infrastructure Capital Preferred Income UCITS ETF",mentions:1,assetClass:"Preferred Stock ETF (UCITS)",yield:8.99,paymentFrequency:"Monthly"},
+  {rank:21,ticker:"PBDC",name:"Putnam BDC Income ETF",mentions:1,assetClass:"BDC ETF",yield:11.64,paymentFrequency:"Monthly"},
+  {rank:22,ticker:"NNN",name:"NNN REIT, Inc.",mentions:1,assetClass:"REIT (Net Lease)",yield:6.16,paymentFrequency:"Quarterly"},
+  {rank:23,ticker:"NHI",name:"National Health Investors, Inc.",mentions:1,assetClass:"REIT (Healthcare)",yield:5.80,paymentFrequency:"Quarterly"},
+  {rank:24,ticker:"KYLD",name:"Kurv High Income ETF",mentions:1,assetClass:"Covered Call ETF",yield:23.70,paymentFrequency:"Monthly"},
+  {rank:25,ticker:"KSLV",name:"Kurv Silver Enhanced Income ETF",mentions:1,assetClass:"Covered Call ETF (Silver)",yield:30.88,paymentFrequency:"Monthly"},
+  {rank:26,ticker:"JPIE",name:"JPMorgan Income ETF",mentions:1,assetClass:"Multi-Sector Bond ETF",yield:5.71,paymentFrequency:"Monthly"},
+  {rank:27,ticker:"HTGC",name:"Hercules Capital, Inc.",mentions:1,assetClass:"BDC",yield:11.39,paymentFrequency:"Quarterly"},
+  {rank:28,ticker:"HQL",name:"abrdn Life Sciences Investors",mentions:1,assetClass:"Healthcare Equity CEF",yield:13.66,paymentFrequency:"Quarterly"},
+  {rank:29,ticker:"HQH",name:"abrdn Healthcare Investors",mentions:1,assetClass:"Healthcare Equity CEF",yield:13.25,paymentFrequency:"Quarterly"},
+  {rank:30,ticker:"HESM",name:"Hess Midstream LP",mentions:1,assetClass:"MLP",yield:9.78,paymentFrequency:"Quarterly"},
+  {rank:31,ticker:"GPIQ",name:"Goldman Sachs Nasdaq-100 Premium Income ETF",mentions:1,assetClass:"Covered Call ETF",yield:9.86,paymentFrequency:"Monthly"},
+  {rank:32,ticker:"FRU",name:"Freehold Royalties Ltd.",mentions:1,assetClass:"Royalty Company (Oil & Gas)",yield:6.38,paymentFrequency:"Monthly"},
+  {rank:33,ticker:"ETG",name:"Eaton Vance Tax-Advantaged Global Dividend Opportunities Fund",mentions:1,assetClass:"Global Equity CEF",yield:6.70,paymentFrequency:"Monthly"},
+  {rank:34,ticker:"EPR",name:"EPR Properties",mentions:1,assetClass:"REIT",yield:6.80,paymentFrequency:"Monthly"},
+  {rank:35,ticker:"DNP",name:"DNP Select Income Fund Inc.",mentions:1,assetClass:"Utilities Equity CEF",yield:7.89,paymentFrequency:"Monthly"},
+  {rank:36,ticker:"DIVO",name:"Amplify CWP Enhanced Dividend Income ETF",mentions:1,assetClass:"Covered Call ETF (Dividend)",yield:6.36,paymentFrequency:"Monthly"},
+  {rank:37,ticker:"BEVFF",name:"Diversified Royalty Corp.",mentions:1,assetClass:"Royalty Company (Trademarks)",yield:7.08,paymentFrequency:"Monthly"},
+  {rank:38,ticker:"CSHI",name:"NEOS Enhanced Income 1-3 Month T-Bill ETF",mentions:1,assetClass:"T-Bill Income ETF",yield:5.00,paymentFrequency:"Monthly"},
+  {rank:39,ticker:"CHY",name:"Calamos Convertible and High Income Fund",mentions:1,assetClass:"Convertible/High Yield CEF",yield:9.82,paymentFrequency:"Monthly"},
+  {rank:40,ticker:"BTCI",name:"NEOS Bitcoin High Income ETF",mentions:1,assetClass:"Covered Call ETF (Bitcoin)",yield:28.00,paymentFrequency:"Monthly"},
+  {rank:41,ticker:"BME",name:"BlackRock Health Sciences Trust",mentions:1,assetClass:"Healthcare Equity CEF",yield:7.16,paymentFrequency:"Quarterly"},
+  {rank:42,ticker:"ARCC",name:"Ares Capital Corporation",mentions:1,assetClass:"BDC",yield:10.34,paymentFrequency:"Quarterly"},
+  {rank:43,ticker:"ADX",name:"Adams Diversified Equity Fund, Inc.",mentions:1,assetClass:"Equity CEF",yield:7.64,paymentFrequency:"Quarterly"},
+  {rank:44,ticker:"ADAMK",name:"Adamas Trust, Inc. 9.600% Senior Notes due 2031",mentions:1,assetClass:"Baby Bond (Senior Notes)",yield:9.58,paymentFrequency:"Quarterly"},
+  {rank:45,ticker:"ADAMH",name:"Adamas Trust, Inc. 9.875% Senior Notes due 2030",mentions:1,assetClass:"Baby Bond (Senior Notes)",yield:9.84,paymentFrequency:"Quarterly"},
+  {rank:46,ticker:"ADAMG",name:"Adamas Trust, Inc. 9.125% Senior Notes due 2030",mentions:1,assetClass:"Baby Bond (Senior Notes)",yield:9.13,paymentFrequency:"Quarterly"}
+];
+
+const OCT26_DATA = `
+1	GPIQ	Goldman Sachs Nasdaq-100 Premium Income ETF	8	ETF – Nasdaq-100 equity/covered calls	9.86%	Monthly
+2	PFFA	Virtus InfraCap U.S. Preferred Stock ETF	7	ETF – Preferred stock	11.13%	Monthly
+3	ASGI	abrdn Global Infrastructure Income Fund	6	CEF – Infrastructure equity/income	12.88%	Monthly
+4	IDVO	Amplify CWP International Enhanced Dividend Income ETF	4	ETF – International equity/covered calls	6.14%	Monthly
+5	QDVO	Amplify CWP Growth & Income ETF	3	ETF – Growth equity/covered calls	11.19%	Monthly
+6	OVL	Overlay Shares Large Cap Equity ETF	3	ETF – Large-cap equity/options overlay	9.45%	Monthly
+7	NIHI	NEOS MSCI EAFE High Income ETF	3	ETF – International equity/options income	9.74%	Monthly
+8	MLPI	NEOS MLP & Energy Infrastructure High Income ETF	3	ETF – MLP/energy infrastructure/options income	14.34%	Monthly
+9	KSLV	Kurv Silver Enhanced Income ETF	3	ETF – Silver/options income	30.88%	Monthly
+10	KGLD	Kurv Gold Enhanced Income ETF	3	ETF – Gold/options income	16.55%	Monthly
+11	ADX	Adams Diversified Equity Fund, Inc.	3	CEF – Diversified US equity	7.93%	Quarterly
+12	XBCI	NEOS Boosted Bitcoin High Income ETF	2	ETF – Bitcoin/options income	40.74%	Monthly
+13	VAIE	VegaShares US Equity Autocallable Income ETF	2	ETF – US equity/autocallable income	16.77%	Weekly
+14	TMGN	TappAlpha Cboe Magnificent 10 Growth & Daily Income ETF	2	ETF – Mega-cap growth/options income	20.89%	Monthly
+15	SPYI	NEOS S&P 500 High Income ETF	2	ETF – S&P 500 equity/options income	12.21%	Monthly
+16	OVF	Overlay Shares Foreign Equity ETF	2	ETF – International equity/options overlay	12.63%	Monthly
+17	MAIN	Main Street Capital Corporation	2	BDC – Middle-market lending	7.93%	Monthly
+18	KYLD	Kurv High Income ETF	2	ETF – Actively managed equity/options income	23.70%	Weekly
+19	KCOP	Kurv Copper & Mining Enhanced Income ETF	2	ETF – Copper/mining/options income	15.89%	Monthly
+20	GOOW	Roundhill GOOGL WeeklyPay ETF	2	ETF – Leveraged single-stock (GOOGL) exposure/weekly income	21.45%	Weekly
+21	GOOP	Kurv Yield Premium Strategy Google ETF	2	ETF – Single-stock (GOOGL)/options income	15.31%	Monthly
+22	CSQ	Calamos Strategic Total Return Fund	2	CEF – Convertibles/multi-asset total return	8.28%	Monthly
+23	CHPY	YieldMax Semiconductor Portfolio Option Income ETF	2	ETF – Semiconductor/options income	40.42%	Weekly
+24	CEFS	Saba Opportunistically Hedged Closed-End Funds ETF	2	ETF – Closed-end fund fund-of-funds/hedged	7.97%	Monthly
+25	CAIQ	Calamos Nasdaq Autocallable Income ETF	2	ETF – Nasdaq equity/autocallable income	17.76%	Monthly
+26	ARCC	Ares Capital Corporation	2	BDC – Middle-market lending	10.05%	Quarterly
+27	XSHP	Kurv SpaceX Enhanced Income ETF	1	ETF – SpaceX-linked exposure/options income	34.03%	Monthly
+28	XQQI	NEOS Boosted Nasdaq-100 High Income ETF	1	ETF – Nasdaq-100 equity/options income	21.04%	Monthly
+29	XLEI	State Street Energy Select Sector SPDR Premium Income ETF	1	ETF – Energy sector/options income	17.79%	Monthly
+30	UTG	Reaves Utility Income Fund	1	CEF – Utilities equity/income	7.19%	Monthly
+31	TSPY	TappAlpha SPY Growth & Daily Income ETF	1	ETF – S&P 500 equity/options income	13.93%	Monthly
+32	TSLX	Sixth Street Specialty Lending, Inc.	1	BDC – Middle-market lending	9.76%	Quarterly
+33	TDAX	TDAQ Lift ETF	1	ETF – Daily 1.3× leveraged Nasdaq-100 exposure	22.33%	Weekly
+34	TDAQ	TappAlpha Innovation 100 Growth & Daily Income ETF	1	ETF – Nasdaq-100 equity/0DTE covered calls	17.59%	Monthly
+35	T.PR.C	AT&T Inc. 4.7 DP SHS PFD C	1	Preferred stock – Telecom	7.83%	Quarterly
+36	STWD	Starwood Property Trust, Inc.	1	REIT – Commercial mortgage	15.74%	Quarterly
+37	SRV	NXG Cushing Midstream Energy Fund	1	CEF – Midstream energy	19.88%	Monthly
+38	SLJY	Amplify SILJ Junior Silver Miners Covered Call ETF	1	ETF – Junior silver miners/covered calls	23.78%	Monthly
+39	RVT	Royce Small-Cap Trust, Inc.	1	CEF – Small-cap equity	7.87%	Quarterly
+40	RITM.PR.F	Rithm Capital Corp. 8.75 CUM SER F	1	Preferred stock – Mortgage REIT	9.63%	Quarterly
+41	RITM.PR.C	Rithm Capital Corp. 6.375 PFD SER C	1	Preferred stock – Mortgage REIT	9.69%	Quarterly
+42	QVOL	Infrastructure Capital Nasdaq Option Income ETF	1	ETF – Nasdaq equity/options income	13.06%	Monthly
+43	QQQI	NEOS Nasdaq-100 High Income ETF	1	ETF – Nasdaq-100 equity/options income	14.28%	Monthly
+44	QQQH	NEOS Nasdaq-100 Hedged Equity Income ETF	1	ETF – Nasdaq-100 equity/hedged options income	9.06%	Monthly
+45	PTY	PIMCO Corporate & Income Opportunity Fund	1	CEF – Multi-sector bonds	13.29%	Monthly
+46	PDX	PIMCO Dynamic Income Strategy Fund	1	CEF – Multi-sector credit/MLPs/equity	23.07%	Monthly
+47	NFLY	YieldMax NFLX Option Income Strategy ETF	1	ETF – Single-stock (NFLX)/options income	40.75%	Weekly
+48	NFLW	Roundhill NFLX WeeklyPay ETF	1	ETF – Leveraged single-stock (NFLX) exposure/weekly income	17.83%	Weekly
+49	MBINL	Merchants Bancorp 7.625 PFD SE E	1	Preferred stock – Bank	8.40%	Quarterly
+50	KQQQ	Kurv Technology Titans Select ETF	1	ETF – Technology equity/options income	14.48%	Monthly
+51	KEY.PR.K	KeyCorp DP SHS PFD G	1	Preferred stock – Bank	7.55%	Quarterly
+52	JBBB	Janus Henderson B-BBB CLO ETF	1	ETF – CLO (B-BBB rated)	6.91%	Monthly
+53	JAAA	Janus Henderson AAA CLO ETF	1	ETF – CLO (AAA rated)	5.26%	Monthly
+54	IYRI	NEOS Real Estate High Income ETF	1	ETF – Real estate/options income	11.00%	Monthly
+55	ISBG	IncomeSTKd 1x Bitcoin & 1x Gold Premium ETF	1	ETF – Leveraged Bitcoin and gold exposure/options income	17.75%	Weekly
+56	IAUI	NEOS Gold High Income ETF	1	ETF – Gold/options income	12.15%	Monthly
+57	HAKY	Amplify HACK Cybersecurity Covered Call ETF	1	ETF – Cybersecurity equity/covered calls	14.77%	Monthly
+58	GPIX	Goldman Sachs S&P 500 Premium Income ETF	1	ETF – S&P 500 equity/covered calls	8.32%	Monthly
+59	GOOGM	Alphabet Inc. DEP SHS RP1/20 A	1	Depositary shares – Mandatory convertible preferred stock (Alphabet)	7.60%	Quarterly
+60	FSCO	FS Credit Opportunities Corp.	1	CEF – Credit	14.31%	Monthly
+61	FDUS	Fidus Investment Corporation	1	BDC – Middle-market lending	11.08%	Quarterly
+62	EGGS	NestYield Total Return Guard ETF	1	ETF – Concentrated US equity/covered calls/downside hedging	22.44%	Monthly
+63	EDGQ	Global X Nasdaq-100 Income Edge ETF	1	ETF – Nasdaq-100 equity/options income	13.30%	Monthly
+64	DRMP	Tuttle Capital Memory Stack Income Blast ETF	1	ETF – Memory technology equities/income strategy	31.63%	Weekly
+65	CSWC	Capital Southwest Corporation	1	BDC – Middle-market lending	11.05%	Monthly
+66	COF.PR.N	Capital One Financial Corporation DEP SHS REP 1/40TH NCUM PFD SER N	1	Preferred stock – Financials	7.49%	Quarterly
+67	CEPI	REX Crypto Equity Premium Income ETF	1	ETF – Crypto equities/options income	41.12%	Monthly
+68	CAIE	Calamos Autocallable Income ETF	1	ETF – Equity/autocallable income	14.29%	Monthly
+69	BOH.PR.A	Bank of Hawaii Corporation 4.375% DEP PFD A	1	Preferred stock – Bank	7.81%	Quarterly
+70	BALQ	iShares Nasdaq Premium Income Active ETF	1	ETF – Nasdaq equity/options income (active)	8.06%	Monthly
+71	ADAMM	Adamas Trust, Inc. 7.875% SER E PFD	1	Preferred stock – Mortgage REIT	10.97%	Quarterly
+`;
+const NOV2_DATA = `
+1	OVL	Overlay Shares Large Cap Equity ETF	4	ETF – US large-cap equity/overlay	9.80%	Monthly
+2	ADX	Adams Diversified Equity Fund, Inc.	4	CEF – US diversified equity	8.18%	Quarterly
+3	UTG	Reaves Utility Income Fund	3	CEF – Utilities equity/income	7.67%	Monthly
+4	MAIN	Main Street Capital Corporation	3	BDC – Middle-market private credit	7.68%	Monthly
+5	GPIQ	Goldman Sachs Nasdaq-100 Premium Income ETF	3	ETF – Nasdaq-100 equity/covered calls	9.86%	Monthly
+6	VAIE	VegaShares US Equity Autocallable Income ETF	2	ETF – US equity/autocallable structured income	17.14%	Monthly
+7	TMGN	TappAlpha Cboe Magnificent 10 Growth & Daily Income ETF	2	ETF – Mega-cap tech equity/covered calls	20.89%	Monthly
+8	TDAQ	TappAlpha Innovation 100 Growth & Daily Income ETF	2	ETF – Nasdaq innovation equity/covered calls	17.59%	Monthly
+9	SOR	Source Capital, Inc.	2	CEF – Multi-asset/value equity	5.33%	Monthly
+10	OVF	Overlay Shares Foreign Equity ETF	2	ETF – International equity/overlay	12.94%	Monthly
+11	MLPI	NEOS MLP & Energy Infrastructure High Income ETF	2	ETF – MLP & energy infrastructure/covered calls	13.84%	Monthly
+12	CSWC	Capital Southwest Corporation	2	BDC – Middle-market private credit	11.01%	Monthly
+13	EGGY	NestYield Dynamic Income ETF	1	ETF – Dynamic growth equity/covered calls	47.87%	Monthly
+14	XSPI	NEOS Boosted S&P 500 High Income ETF	1	ETF – S&P 500 equity/boosted covered calls	16.96%	Monthly
+15	XSHP	Kurv SpaceX Enhanced Income ETF	1	ETF – Single-stock (SpaceX)/option income	37.21%	Monthly
+16	XQQI	NEOS Boosted Nasdaq-100 High Income ETF	1	ETF – Nasdaq-100 equity/boosted covered calls	20.65%	Monthly
+17	VKQ	Invesco Municipal Trust	1	CEF – Municipal bonds	8.24%	Monthly
+18	UTF	Cohen & Steers Infrastructure Fund, Inc.	1	CEF – Infrastructure/utilities equity	7.67%	Monthly
+19	TRIN	Trinity Capital Inc.	1	BDC – Venture/growth-stage lending	11.46%	Monthly
+20	TDAX	TDAQ Lift ETF	1	ETF – Nasdaq innovation equity/enhanced income	23.87%	Weekly
+21	SYF.PR.B	Synchrony Financial depositary shares	1	Preferred – Financials	8.19%	Quarterly
+22	STWD	Starwood Property Trust, Inc.	1	mREIT – Commercial mortgage	15.93%	Quarterly
+23	SCYB	Schwab High Yield Bond ETF	1	ETF – High-yield corporate bonds	7.08%	Monthly
+24	RVT	Royce Small-Cap Trust, Inc.	1	CEF – US small-cap equity	7.90%	Quarterly
+25	RSPA	Invesco S&P 500 Equal Weight Income Advantage ETF	1	ETF – S&P 500 equal-weight equity/covered calls	9.32%	Monthly
+26	RFMZ	RiverNorth Flexible Municipal Income Fund II, Inc.	1	CEF – Municipal bonds	7.92%	Monthly
+27	RDVI	FT Vest Rising Dividend Achievers Target Income ETF	1	ETF – Dividend growth equity/target income	8.44%	Monthly
+28	QQQI	NEOS Nasdaq-100 High Income ETF	1	ETF – Nasdaq-100 equity/covered calls	14.09%	Monthly
+29	QDVO	Amplify CWP Growth & Income ETF	1	ETF – Growth equity/covered calls	11.41%	Monthly
+30	PTY	PIMCO Corporate & Income Opportunity Fund	1	CEF – Corporate bonds/multi-sector credit	12.68%	Monthly
+31	PFFA	Virtus InfraCap U.S. Preferred Stock ETF	1	ETF – Preferred stocks	11.17%	Monthly
+32	PEO	Adams Natural Resources Fund, Inc.	1	CEF – Energy/natural resources equity	7.86%	Quarterly
+33	NML	Neuberger Berman Energy Infrastructure and Income Fund Inc.	1	CEF – Energy infrastructure/MLPs	8.73%	Monthly
+34	NLY.PR.G	Annaly Capital Management, Inc. PFD SER G	1	Preferred – Mortgage REIT	8.35%	Quarterly
+35	MPV	Barings Participation Investors	1	CEF – Private placement debt	9.10%	Quarterly
+36	KGLD	Kurv Gold Enhanced Income ETF	1	ETF – Gold/covered calls	17.50%	Monthly
+37	KCOP	Kurv Copper & Mining Enhanced Income ETF	1	ETF – Copper & mining/covered calls	17.34%	Monthly
+38	JPIE	JPMorgan Income ETF	1	ETF – Multi-sector bonds	5.68%	Monthly
+39	JBBB	Janus Henderson B-BBB CLO ETF	1	ETF – CLO debt	6.87%	Monthly
+40	HTGC	Hercules Capital, Inc.	1	BDC – Venture/growth-stage lending	11.63%	Quarterly
+41	HAKY	Amplify HACK Cybersecurity Covered Call ETF	1	ETF – Cybersecurity equity/covered calls	16.27%	Monthly
+42	GPIX	Goldman Sachs S&P 500 Premium Income ETF	1	ETF – S&P 500 equity/covered calls	8.17%	Monthly
+43	FITB.PR.I	Fifth Third Bancorp DEP 1/1000 PFD	1	Preferred – Bank	7.71%	Quarterly
+44	ET	Energy Transfer LP	1	MLP – Midstream energy	7.24%	Quarterly
+45	EDGQ	Global X Nasdaq-100 Income Edge ETF	1	ETF – Nasdaq-100 equity/covered calls	13.72%	Monthly
+46	DIVO	Amplify CWP Enhanced Dividend Income ETF	1	ETF – Dividend growth equity/covered calls	6.49%	Monthly
+47	COF.PR.N	Capital One Financial Corporation DEP SHS REP 1/40TH NCUM PFD SER N	1	Preferred – Bank/financials	7.48%	Quarterly
+48	CHY	Calamos Convertible and High Income Fund	1	CEF – Convertible/high-yield	11.14%	Monthly
+49	CET	Central Securities Corporation	1	CEF – Diversified equity	10.88%	Quarterly
+50	CEFS	Saba Opportunistic Hedged Closed-End Funds ETF	1	ETF – Closed-end funds/hedged	8.23%	Quarterly
+51	BUI	BlackRock Utilities, Infrastructure & Power Opportunities Trust	1	CEF – Utilities/infrastructure equity	7.09%	Monthly
+52	BTCI	NEOS Bitcoin High Income ETF	1	ETF – Bitcoin/covered calls	24.96%	Monthly
+53	BST	BlackRock Science and Technology Trust	1	CEF – Technology equity	6.90%	Monthly
+54	BME	BlackRock Health Sciences Trust	1	CEF – Healthcare equity	6.71%	Monthly
+55	BGR	BlackRock Energy and Resources Trust	1	CEF – Energy equity	6.96%	Monthly
+56	BCX	BlackRock Resources & Commodities Strategy Trust	1	CEF – Commodities/natural resources equity	7.07%	Monthly
+57	BALQ	iShares Nasdaq Premium Income Active ETF	1	ETF – Nasdaq equity/covered calls	9.15%	Monthly
+58	ARCC	Ares Capital Corporation	1	BDC – Middle-market private credit	10.04%	Quarterly
+59	AGNCZ	AGNC Investment Corp. 8.75 DEP PF SR H	1	Preferred – Mortgage REIT	9.25%	Quarterly
+60	AGNCO	AGNC Investment Corp. 6.5% DP SH PFD E	1	Preferred – Mortgage REIT	9.24%	Quarterly
+61	ADAMH	Adamas Trust, Inc. Senior Notes due 2030	1	Baby bond – Mortgage REIT senior notes	10.07%	Quarterly
+62	AOD	abrdn Total Dynamic Dividend Fund	1	CEF – Global dividend equity/covered calls	12.06%	Monthly
+63	NIHI	NEOS MSCI EAFE High Income ETF	1	ETF – International developed equity/covered calls	10.19%	Monthly
+`;
+const SELL_OCT26_NOV8_DATA = `
+1	IYRI	NEOS Real Estate High Income ETF	3	ETF – US REIT equity/covered calls	10.83%	Monthly
+2	XSPI	NEOS Boosted S&P 500 High Income ETF	1	ETF – S&P 500 equity/boosted covered calls	16.96%	Monthly
+3	XQQI	NEOS Boosted Nasdaq-100 High Income ETF	1	ETF – Nasdaq-100 equity/boosted covered calls	20.65%	Monthly
+4	XDTE	Roundhill S&P 500 0DTE Covered Call Strategy ETF	1	ETF – S&P 500 equity/0DTE covered calls	15.61%	Weekly
+5	WEEL	Peerless Option Income Wheel ETF	1	ETF – Sector equity/option wheel (puts & calls)	11.86%	Quarterly
+6	WDI	Western Asset Diversified Income Fund	1	CEF – Multi-sector credit	15.24%	Monthly
+7	VVR	Invesco Senior Income Trust	1	CEF – Senior loans	12.00%	Monthly
+8	UTF	Cohen & Steers Infrastructure Fund	1	CEF – Infrastructure/utilities equity	7.67%	Monthly
+9	TSLP	Kurv Yield Premium Strategy Tesla ETF	1	ETF – Single-stock (Tesla)/option income	23.35%	Monthly
+10	STRC	Strategy Stretch Preferred Stock	1	Preferred – Variable-rate perpetual	12.02%	Semi-monthly
+11	RDTE	Roundhill Russell 2000 0DTE Covered Call Strategy ETF	1	ETF – Russell 2000 small-cap equity/0DTE covered calls	25.25%	Weekly
+12	QQQI	NEOS Nasdaq-100 High Income ETF	1	ETF – Nasdaq-100 equity/covered calls	14.09%	Monthly
+13	QDTE	Roundhill Nasdaq-100 0DTE Covered Call Strat ETF	1	ETF – Nasdaq-100 equity/0DTE covered calls	31.95%	Weekly
+14	PDI	PIMCO Dynamic Income Fund	1	CEF – Multi-sector bonds	17.85%	Monthly
+15	MSFY	Kurv Yield Premium Strategy Microsoft ETF	1	ETF – Single-stock (Microsoft)/option income	11.19%	Monthly
+16	MPV	Barings Participation Investors	1	CEF – Private placement debt	9.10%	Quarterly
+17	MLPI	NEOS MLP & Energy Infrastructure High Income ETF	1	ETF – MLP & energy infrastructure/covered calls	13.84%	Monthly
+18	MFIC	MidCap Financial Investment Corporation	1	BDC – Middle-market private credit	12.09%	Quarterly
+19	HQL	abrdn Life Sciences Investors	1	CEF – Life sciences equity	13.71%	Quarterly
+20	HQH	abrdn Healthcare Investors	1	CEF – Healthcare equity	12.50%	Quarterly
+21	CRF	Cornerstone Total Return Fund, Inc.	1	CEF – US diversified equity	24.42%	Monthly
+22	CLM	Cornerstone Strategic Value Fund, Inc.	1	CEF – US diversified equity	24.34%	Monthly
+23	CHI	Calamos Convertible Opportunities and Income Fund	1	CEF – Convertible/high-yield	10.74%	Monthly
+24	BXSL	Blackstone Secured Lending Fund	1	BDC – Senior secured private credit	12.79%	Quarterly
+25	BLOX	Nicholas Crypto Income ETF	1	ETF – Crypto/crypto-equity option income	36.00%	Weekly
+26	AVK	Advent Convertible and Income Fund	1	CEF – Convertible/high-yield	13.11%	Monthly
+27	ADAMH	Adamas Trust, Inc. 9.875% Senior Notes due 2030	1	Baby bond – Residential mortgage REIT senior notes	10.07%	Quarterly
+`;
+DATA = SELL_OCT26_NOV8_DATA.trim().split('\n').map(line => { const [rank,ticker,name,mentions,assetClass,yieldPct,paymentFrequency] = line.split('\t'); return {rank:Number(rank),ticker,name,mentions:Number(mentions),assetClass,yield:parseFloat(yieldPct),paymentFrequency}; });
+
+DATA.forEach(d => {
+  d.ac = d.assetClass;
+  d.freq = d.paymentFrequency;
+});
+
+// ─── TABLE ───
 let sortCol=0, sortDir=1, curFilter='all';
-const GOLD='#C9A84C', GOLD2='#E8C97A', GREEN='#1F6B47', AMBER='#9E5A0A', RED='#8B1A1A', INK='#18150F';
 
-function yC(y){return y>=25?'yield-ex':y>=20?'yield-hi':'';}
+function yC(y){return y>=50?'yield-ex':y>=20?'yield-hi':'';}
 function yTag(y){
-  if(y>=25) return '<span class="tag tag-ex">ATTENTION</span>';
+  if(y>=50) return '<span class="tag tag-ex">VERY HIGH</span>';
   if(y>=20) return '<span class="tag tag-hi">HIGH</span>';
   return '';
+}
+
+function broadCat(ac){
+  const a=ac.toLowerCase();
+  if(a.includes('etf')) return 'ETFs';
+  if(a.includes('cef') || a.includes('closed-end fund')) return 'CEFs';
+  if(a.includes('preferred')) return 'Preferred Stock';
+  if(a.includes('baby bond') || a.includes('bond') || a.includes('credit') || a.includes('note') || a.includes('debt') || a.includes('debenture')) return 'Credit / Bonds';
+  if(a.includes('bdc') || a.includes('business development')) return 'BDCs';
+  if(a.includes('reit') && !a.includes('etf')) return 'REITs';
+  if(a.includes('mlp')) return 'MLP / Energy';
+  if(a.includes('common stock') || a.includes('common equity')) return 'Equities';
+  if(a.includes('equity')) return 'Equities';
+  return 'Other';
 }
 
 function renderTbl(rows){
@@ -867,7 +1623,12 @@ function renderTbl(rows){
       <td class="rank-c">${d.rank}</td>
       <td><span class="t-badge">${d.ticker}</span></td>
       <td class="name-c" title="${d.name}">${d.name}</td>
-      <td><div class="men-wrap"><span class="men-num">${d.mentions}</span><div class="men-bar" style="width:${Math.round(d.mentions/maxM*70)}px"></div></div></td>
+      <td>
+        <div class="men-wrap">
+          <span class="men-num">${d.mentions}</span>
+          <div class="men-bar" style="width:${Math.round(d.mentions/maxM*70)}px"></div>
+        </div>
+      </td>
       <td><span class="type-pill">${d.ac}</span></td>
       <td><a href="https://seekingalpha.com/symbol/${d.ticker}" target="_blank" rel="noopener" class="yield-link"><span class="yield-v ${yC(d.yield)}">${d.yield.toFixed(2)}%</span>${yTag(d.yield)}<span class="sa-icon">↗</span></a></td>
       <td><span class="freq-pill">${d.freq}</span></td>
@@ -879,11 +1640,11 @@ function getRows(){
   let r=[...DATA];
   const q=document.getElementById('sBox').value.toLowerCase().trim();
   if(q) r=r.filter(d=>d.ticker.toLowerCase().includes(q)||d.name.toLowerCase().includes(q)||d.ac.toLowerCase().includes(q)||d.freq.toLowerCase().includes(q));
-  if(curFilter==='CEF') r=r.filter(d=>broadCat(d.ac)==='Closed-End Funds');
-  else if(curFilter==='ETF') r=r.filter(d=>broadCat(d.ac)==='ETFs');
-  else if(curFilter==='PREF') r=r.filter(d=>/preferred|\.pr\./i.test(`${d.ac} ${d.name} ${d.ticker}`));
-  else if(curFilter==='EQ') r=r.filter(d=>/\bbdc\b|business development|\bequity\b|\bcommon stock\b/i.test(`${d.ac} ${d.name}`));
-  else if(curFilter==='hi2') r=r.filter(d=>d.mentions>=2);
+  if(curFilter==='CEF')  r=r.filter(d=>broadCat(d.ac)==='CEFs');
+  else if(curFilter==='ETF')  r=r.filter(d=>broadCat(d.ac)==='ETFs');
+  else if(curFilter==='PREF') r=r.filter(d=>d.ac.toLowerCase().includes('preferred'));
+  else if(curFilter==='EQ')   r=r.filter(d=>(d.ac + ' ' + d.name).toLowerCase().includes('equity'));
+  else if(curFilter==='hi2')  r=r.filter(d=>d.mentions>=2);
   else if(curFilter==='hy10') r=r.filter(d=>d.yield>=10);
   return r;
 }
@@ -894,62 +1655,111 @@ function setF(f){
   filterTbl();
 }
 function sortT(col){
-  document.querySelectorAll('thead th').forEach(th=>th.classList.remove('sa','sd'));
+  document.querySelectorAll('thead th').forEach((th,i)=>{th.classList.remove('sa','sd');});
   if(sortCol===col) sortDir*=-1; else{sortCol=col;sortDir=1;}
   document.querySelectorAll('thead th')[col].classList.add(sortDir===1?'sa':'sd');
   const keys=['rank','ticker','name','mentions','ac','yield','freq'];
   const rows=getRows().sort((a,b)=>{
-    let av=a[keys[col]], bv=b[keys[col]];
-    return (typeof av==='string'?av.localeCompare(bv):(av-bv))*sortDir;
+    let av=a[keys[col]],bv=b[keys[col]];
+    return(typeof av==='string'?av.localeCompare(bv):(av-bv))*sortDir;
   });
   renderTbl(rows);
 }
 renderTbl(DATA);
 
+// ─── CHARTS ───
+const GOLD='#C9A84C', GOLD2='#E8C97A', GREEN='#1F6B47', AMBER='#9E5A0A', RED='#8B1A1A', INK='#18150F';
 Chart.defaults.font.family="'DM Sans',sans-serif";
 Chart.defaults.color='#7A6F5E';
 
-const sortedMentions=[...DATA].sort((a,b)=>b.mentions-a.mentions || a.rank-b.rank);
+// 1. Mentions bar — always show the ten leading sell tickers.
+// This keeps the chart informative even when only one ticker repeats.
+const topM=[...DATA].sort((a,b)=>b.mentions-a.mentions || a.rank-b.rank).slice(0,10);
 new Chart(document.getElementById('mentChart'),{
   type:'bar',
-  data:{labels:sortedMentions.map(d=>d.ticker),datasets:[{data:sortedMentions.map(d=>d.mentions),backgroundColor:sortedMentions.map(d=>d.mentions>=3?GOLD:d.mentions>=2?GOLD2:'#DDD3B8'),borderRadius:5,borderSkipped:false}]},
-  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.raw} mention${c.raw!==1?'s':''}`}}},scales:{x:{grid:{display:false},border:{display:false},ticks:{maxRotation:65,minRotation:45}},y:{beginAtZero:true,grid:{color:'#EDE4D0'},border:{display:false},ticks:{stepSize:1}}}}
+  data:{
+    labels:topM.map(d=>d.ticker),
+    datasets:[{
+      data:topM.map(d=>d.mentions),
+      backgroundColor:topM.map(d=>d.ticker==='IYRI'?GOLD:'#DDD3B8'),
+      borderRadius:5,borderSkipped:false,
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.raw} mention${c.raw!==1?'s':''}`}}},
+    scales:{
+      x:{grid:{display:false},border:{display:false},ticks:{font:{size:10}}},
+      y:{beginAtZero:true,grid:{color:'#EDE4D0'},border:{display:false},ticks:{stepSize:1,precision:0}}
+    }
+  }
 });
 
+// 2. Yield bar top10
 const topY=[...DATA].sort((a,b)=>b.yield-a.yield).slice(0,10);
 new Chart(document.getElementById('yieldChart'),{
   type:'bar',
-  data:{labels:topY.map(d=>d.ticker),datasets:[{data:topY.map(d=>d.yield),backgroundColor:topY.map(d=>d.yield>=25?RED:d.yield>=20?AMBER:GREEN),borderRadius:5,borderSkipped:false}]},
-  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.raw.toFixed(2)}%`}}},scales:{x:{grid:{display:false},border:{display:false}},y:{beginAtZero:true,grid:{color:'#EDE4D0'},border:{display:false},ticks:{callback:v=>v+'%'}}}}
+  data:{
+    labels:topY.map(d=>d.ticker),
+    datasets:[{
+      data:topY.map(d=>d.yield),
+      backgroundColor:topY.map(d=>d.yield>=50?RED:d.yield>=20?AMBER:GREEN),
+      borderRadius:5,borderSkipped:false,
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.raw.toFixed(2)}%`}}},
+    scales:{
+      x:{grid:{display:false},border:{display:false}},
+      y:{beginAtZero:true,grid:{color:'#EDE4D0'},border:{display:false},ticks:{callback:v=>v+'%'}}
+    }
+  }
 });
 
-function broadCat(ac){
-  const a=ac.toLowerCase();
-  if(a.includes('bdc') || a.includes('business development')) return 'Equities / BDCs';
-  if(a.includes('preferred')) return 'Preferred Stock';
-  if(a.startsWith('cef') || a.includes(' cef') || a.includes('closed-end fund')) return 'Closed-End Funds';
-  if(a.startsWith('etf') || a.includes(' etf') || a.endsWith('etf')) return 'ETFs';
-  if(a.includes('reit') || a.includes('mortgage credit')) return 'REITs / Mortgage Credit';
-  if(a.includes('debt') || a.includes('senior notes') || a.includes('credit')) return 'Credit / Bonds';
-  if(a.startsWith('equity') || a.includes('equity')) return 'Equities / BDCs';
-  return 'Other';
-}
+// 3. Donut — broad categories
 const catMap={};
 DATA.forEach(d=>{const c=broadCat(d.ac);catMap[c]=(catMap[c]||0)+1;});
 const catSorted=Object.entries(catMap).sort((a,b)=>b[1]-a[1]);
-const PAL=[GOLD,'#D9A441','#B98032','#F3D98A','#8F6A2D','#D47B37','#C7AA6A','#9D7840'];
+const PAL=[GOLD,'#D9A441','#B98032','#F3D98A','#8F6A2D','#D47B37','#C7AA6A','#9D7840','#E8BD72','#A86E2D'];
 new Chart(document.getElementById('donutChart'),{
   type:'doughnut',
-  data:{labels:catSorted.map(c=>c[0]),datasets:[{data:catSorted.map(c=>c[1]),backgroundColor:PAL,borderWidth:2,borderColor:'#FDFCF8',hoverOffset:6}]},
-  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{padding:11,font:{size:11},boxWidth:12,usePointStyle:true}},tooltip:{callbacks:{label:c=>`${c.label}: ${c.raw} tickers`}}},cutout:'55%'}
+  data:{
+    labels:catSorted.map(c=>c[0]),
+    datasets:[{
+      data:catSorted.map(c=>c[1]),
+      backgroundColor:PAL,
+      borderWidth:2,borderColor:'#FDFCF8',hoverOffset:6,
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{
+      legend:{position:'bottom',labels:{padding:11,font:{size:11},boxWidth:12,usePointStyle:true}},
+      tooltip:{callbacks:{label:c=>`${c.label}: ${c.raw} tickers`}}
+    },
+    cutout:'55%'
+  }
 });
+
+// 4. Bubble scatter yield vs mentions
+const scatD=DATA.map(d=>({
+  x:d.mentions+(Math.random()*.12-.06),
+  y:d.yield>75?75:d.yield,
+  label:d.ticker,
+  actualY:d.yield,
+  mentions:d.mentions,
+  r:Math.max(5,d.mentions*3.5),
+  ex:d.yield>=50,
+  hi:d.yield>=20,
+}));
 
 
 </script>
 
 <script>
 function download_mainTbl() {
-  var headers = ['Rank', 'Ticker', 'Name of Ticker', 'Mentions', 'Asset Class', 'Yield', 'Payment Frequency'];
+  var headers = ['#', 'Ticker', 'Name', 'Mentions', 'Asset Class', 'Yield', 'Payment Frequency'];
   var rows = [headers];
   var tbody = document.getElementById('tBody');
   var trs = tbody ? tbody.querySelectorAll('tr') : [];
@@ -964,84 +1774,87 @@ function download_mainTbl() {
   var ws = XLSX.utils.aoa_to_sheet(rows);
   var wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, 'Report');
-  XLSX.writeFile(wb, 'WeeklySellSummary_October12-25_2026.xlsx');
+  XLSX.writeFile(wb, 'WeeklySellSummary_October26-November8_2026.xlsx');
 }
+
 </script>
 <script src="vendor/gsap.min.js"></script>
 <script src="vendor/ScrollTrigger.min.js"></script>
 <script src="premium.js?v=11"></script>
 
 <script>
-(function renderQuarterSellContext(){
-  if(!window.Chart) return;
 
-  const trendData=[
-    {label:'Aug 3–16',value:24},
-    {label:'Aug 17–30',value:30},
-    {label:'Aug 31–Sep 13',value:23},
-    {label:'Sep 14–27',value:25},
-    {label:'Sep 28–Oct 11',value:19},
-    {label:'Oct 12–25',value:18}
-  ];
-  const trendEl=document.getElementById('quarterSellTrend');
-  if(trendEl){
-    new Chart(trendEl,{
-      type:'line',
-      data:{
-        labels:trendData.map(d=>d.label),
-        datasets:[{
-          label:'Sell mentions',
-          data:trendData.map(d=>d.value),
-          borderColor:'#E8C97A',
-          backgroundColor:'rgba(201,168,76,.16)',
-          pointBackgroundColor:'#C9A84C',
-          pointBorderColor:'#18150F',
-          pointRadius:4,
-          pointHoverRadius:6,
-          tension:.38,
-          fill:true
+
+
+(function renderQuarterContextCharts() {
+  const gold = '#C9A84C';
+  const goldLt = '#E8C97A';
+  const trendData = [{"label":"Aug 3–16","value":24},{"label":"Aug 17–30","value":30},{"label":"Aug 31–Sep 13","value":23},{"label":"Sep 14–27","value":25},{"label":"Sep 28–Oct 11","value":19},{"label":"Oct 12–25","value":18}];
+  const mixData = [{"label":"ETF","value":59},{"label":"CEF","value":57},{"label":"BDC","value":10},{"label":"Preferred","value":5},{"label":"Baby Bonds","value":5},{"label":"Equity","value":2},{"label":"REIT","value":1}];
+  const contextTitles = document.querySelectorAll('.quarter-context .q-chart-title');
+  if (contextTitles[0]) contextTitles[0].textContent = 'August–October Sell Mention Trend';
+  if (contextTitles[1]) contextTitles[1].textContent = 'August–October Asset-Class Mix';
+  const [trendFallback, mixFallback] = document.querySelectorAll('.quarter-context .q-bars');
+  const fallbackRows = (items) => {
+    const max = Math.max(...items.map(item => item.value));
+    return items.map(item => `<div class="q-bar-row"><span>${item.label}</span><span class="q-track"><span class="q-fill" style="width:${Math.round(item.value / max * 100)}%"></span></span><span>${item.value}</span></div>`).join('');
+  };
+  if (trendFallback) trendFallback.innerHTML = fallbackRows(trendData);
+  if (mixFallback) mixFallback.innerHTML = fallbackRows(mixData);
+  if (!window.Chart) return;
+  const trendEl = document.getElementById('quarterBuyTrend');
+  if (trendEl) {
+    new Chart(trendEl, {
+      type: 'line',
+      data: {
+        labels: trendData.map(d => d.label),
+        datasets: [{
+          label: 'Mentions',
+          data: trendData.map(d => d.value),
+          borderColor: goldLt,
+          backgroundColor: 'rgba(201,168,76,.14)',
+          pointBackgroundColor: gold,
+          pointBorderColor: '#18150F',
+          pointRadius: 4,
+          pointHoverRadius: 6,
+          tension: .38,
+          fill: true
         }]
       },
-      options:{
-        responsive:true,
-        maintainAspectRatio:false,
-        plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.raw} sell mentions`}}},
-        scales:{
-          x:{grid:{display:false},ticks:{color:'rgba(255,248,230,.66)',maxRotation:45,minRotation:20}},
-          y:{beginAtZero:true,grid:{color:'rgba(255,255,255,.10)'},ticks:{color:'rgba(255,248,230,.72)',precision:0,stepSize:5}}
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { display: false }, ticks: { color: 'rgba(255,248,230,.62)', maxRotation: 45, minRotation: 20 } },
+          y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,.10)' }, ticks: { color: 'rgba(255,248,230,.66)' } }
         }
       }
     });
   }
-
-  const mixData=[
-    {label:'CEF',value:8},
-    {label:'ETF',value:7},
-    {label:'BDC',value:3}
-  ];
-  const mixEl=document.getElementById('quarterSellMix');
-  if(mixEl){
-    new Chart(mixEl,{
-      type:'doughnut',
-      data:{
-        labels:mixData.map(d=>d.label),
-        datasets:[{
-          data:mixData.map(d=>d.value),
-          backgroundColor:['#C9A84C','#3D3628','#1F6B47','#A07830','#8B1A1A','#E8C97A','#7A6F5E','#D9C28A'],
-          borderColor:'#18150F',
-          borderWidth:2,
-          hoverOffset:6
+  const mixEl = document.getElementById('quarterBuyMix');
+  if (mixEl) {
+    new Chart(mixEl, {
+      type: 'doughnut',
+      data: {
+        labels: mixData.map(d => d.label),
+        datasets: [{
+          data: mixData.map(d => d.value),
+          backgroundColor: ['#C9A84C','#E8C97A','#1F6B47','#A07830','#8B1A1A','#7A6F5E','#D79A35','#5C4931','#3E3424'],
+          borderColor: '#18150F',
+          borderWidth: 2
         }]
       },
-      options:{
-        responsive:true,
-        maintainAspectRatio:false,
-        plugins:{legend:{position:'bottom',labels:{color:'rgba(255,248,230,.78)',font:{family:'DM Sans',size:11},boxWidth:12,usePointStyle:true}}},
-        cutout:'62%'
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        cutout: '62%'
       }
     });
   }
 })();
+
 </script>
 </body>
 </html>
